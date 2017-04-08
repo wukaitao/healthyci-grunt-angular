@@ -1,7 +1,0 @@
-<div class="exchange-result">
-	<img ng-src="images/exchange/{{form.exchange.status}}.png"/>
-	<section ng-if="form.exchange.status">{{form.exchange.name}}<br>保单号：{{form.exchange.data}}</section>
-	<section ng-if="!form.exchange.status" ng-bind-html="form.exchange.data"></section>
-	<button ng-if="form.exchange.status" ng-click="form.leftBtnClick()">完&nbsp;&nbsp;成</button>
-	<button ng-if="!form.exchange.status" onclick="history.back()">重新填写</button>
-</div>
