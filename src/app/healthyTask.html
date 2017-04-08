@@ -1,0 +1,115 @@
+<div class="healthy-task">
+    <div class="list-head clearfix">
+        <span class="pull-right go-healthytask-set" ng-click="goHealthyTaskSet()">任务设置 <i class="icon-arrow"></i></span>
+    </div>
+    <div class="white-bg">
+        <div class="task-category" ng-repeat="group in taskGroups" ng-if="group.category.length>0">
+            <h3 class="font-black">{{group.group}}</h3>
+            <ul class="task-items">
+                <li ng-repeat="category in group.category" class="enterValue">
+                    <div ng-if="category.id!='0201'" class="tdcell">
+                        <h4 ng-class="getTitleClass(category)">{{category.title}} </h4>
+                        <span ng-if="category.id=='0602' && smoke!=''">{{smoke}} 支</span>
+                        <span class="font-grey" ng-if="category.isComplete=='0'">{{category.summary}}</span>
+                        <span class="font-grey" ng-if="category.isComplete=='1'">{{category.summaryCheck}}</span>
+                        <div class="enter-value" ng-show="expandme(category)" ng-if="category.id=='0801'">
+                            <!--input type="tel" class="weight" ng-model="weight" placeholder="体重(kg)"><a ng-click="changeCheck(category,weight)">确定</a-->
+                        </div>
+                        <div class="enter-value" ng-show="expandme(category)" ng-if="category.id=='0602'">
+                            <label class="font-blue text-center">吸烟</label>
+                            <select ng-model="smoke" class="smoke" ng-options="data for data in smokeRuler" ng-change="changeCheck(category, smoke)"></select>
+                            <script type="text/javascript">
+                            var smokeOpt = {
+                                theme: 'ios',
+                                lang: 'zh',
+                                display: 'bottom',
+                                onSelect: function(val) {
+
+                                    // angular.element($("#height-1")).scope().setHeightValue(angular.element($("#height-1")).scope().answer.value)
+                                }
+                            }
+                            setTimeout(function() {
+                                $('.smoke').mobiscroll().select(smokeOpt);
+                            })
+                            $('.smoke').on('focus', function() {
+                                $('.top-menu').css('position', 'absolute');
+                            })
+                            $('.smoke').on('blur', function() {
+                                $('.top-menu').css('position', 'fixed');
+                            })
+                            </script>
+                        </div>
+                    </div>
+                    <div class="tdcell text-right weight-area" ng-if="category.id=='0801'">
+                        <span class="weight-input" id="weight-1" ng-click="setDefaultValue()">
+                            <div class="weightValue">{{weightValue}}</div> 
+                            <select ng-model="weight" class="weight"  ng-options="data for data in weightRuler" ng-change="changeCheck(category,weight)">
+                            </select> 公斤
+                            <script type="text/javascript">
+                            
+                             var weightOpt={
+                                theme: 'ios',
+                                lang: 'zh',
+                                display: 'bottom',
+                                defaultValue: 30,
+                                onSelect: function(val) {
+                                    var obj = {"id":"0801",
+                                                "title":"记录今天的体重",
+                                                "summary":"",
+                                                "titleCheck":"记录今天的体重",
+                                                "summaryCheck":"",
+                                                "isComplete":"0",
+                                                "value":"",
+                                                "fromServer":false
+                                            }
+                                    obj.value=angular.element($("#weight-1")).scope().weight;
+                                    angular.element($("#weight-1")).scope().changeCheck(obj,angular.element($("#weight-1")).scope().weight)
+
+
+                                     angular.element($("#weight-1")).scope().setWeightValue(angular.element($("#weight-1")).scope().weight)
+
+                                }
+                            }
+
+                            setTimeout(function(){
+                                $('.weight').mobiscroll().select(weightOpt);
+                                $('.weightValue').on('click',function(){
+                                    $('.weight').mobiscroll('show');
+                                })
+                            })
+                            </script>
+                            <script type="text/javascript">
+                            $('.weight').on('focus', function() {
+                                $('.top-menu').css('position', 'absolute');
+                            })
+                            $('.weight').on('blur', function() {
+                                $('.top-menu').css('position', 'fixed');
+                            })
+                            </script>
+                        </span>
+                    </div>
+                    <div ng-if="category.id!='0201'&&category.id!='0801'" class="tdcell text-right " ng-click="changeCheck(category);">
+                        <a ng-class="getButtonClass(category)"><i ng-class="getButtonIconClass(category)"></i></a>
+                    </div>
+                    <h4 ng-if="category.id=='0201'" class="font-blue text-center">我喝了{{totleCupsLength()}}杯水</h4>
+                    <div ng-if="category.id=='0201'" class="cups">
+                        <span ng-repeat="cup in totleCups.totleCups">
+                                    <img ng-click="setCupStatus(cup, $index, category)" ng-src="{{cup.isEmpty?'images/empty-cup-task.png':'images/water-cup-task.png'}}" />
+                                </span>
+                    </div>
+                    <div ng-if="category.id=='0521'" class="tdcell text-right font-blue" ng-click="changeTargetStep();">
+                        修改目标步数
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="button-area">
+            <a class="long-button" ng-click="submitTask()" ng-if="category.length>0&&!isSubmit">提交</a>
+            <a class="long-button disable" ng-if="category.length==0||isSubmit">提交</a>
+        </div>
+    </div>
+    <div ng-class="showSubmitSuccess()">
+        <span class="success-icon"><i class="icon-right"></i></span>
+        <span>保存成功!</span>
+    </div>
+</div>

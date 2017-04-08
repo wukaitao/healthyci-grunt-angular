@@ -1,0 +1,12 @@
+<header class="exchange-list line-tip">下列保险只能选择其中一个进行兑换哦！</header>
+<ul class="exchange-list">
+	<li ng-repeat="exchange in exchangelist" ng-click="exchangeDetail(exchange.status,exchange.productCode,exchange.productName)" ng-class="{'disabled':exchange.status==3}">
+		<img ng-src="{{exchange.productPic}}" class="title"/>
+		<img src="images/exchange/mark.png" class="marked"/>
+		<img src="images/exchange/already.png" class="already" ng-if="exchange.status==1"/>
+		<header>{{exchange.productName}}</header>
+		<section class="feature">{{exchange.productDesc}}</section>
+		<section class="time-limit">{{exchange.validity}}</section>
+		<section class="coin">{{exchange.productScore}}</section>
+	</li>
+</ul>

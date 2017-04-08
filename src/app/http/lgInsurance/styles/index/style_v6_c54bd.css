@@ -1,0 +1,386 @@
+.horizontal-middle {
+    margin: 0 auto;
+}
+
+.vertical-middle {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    /* IE 9 */
+    -webkit-transform: translateY(-50%);
+    /* Safari and Chrome */
+    -o-transform: translateY(-50%);
+    /* Opera */
+    -moz-transform: translateY(-50%);
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.img-responsive {
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* Mixin */
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.testRenameImages {
+    background-image: url("../../images/util/loading_v6_0e6e0.gif");
+}
+
+.popUp {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popUp-content {
+    width: 90%;
+    /*height: 24em;*/
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    /* IE 9 */
+    -webkit-transform: translateY(-50%);
+    /* Safari and Chrome */
+    -o-transform: translateY(-50%);
+    /* Opera */
+    -moz-transform: translateY(-50%);
+    margin: 0 auto;
+}
+
+.popUp-bgImg-box {
+    position: relative;
+}
+
+.popUp-bgImg-box:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    padding-top: 115%;
+}
+
+.popUp-caseImg-box {
+    position: relative;
+}
+
+.popUp-caseImg-box:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    padding-top: 125%;
+}
+
+.popUp-successImg-box {
+    position: relative;
+}
+
+.popUp-successImg-box:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    padding-top: 79%;
+}
+
+.popUp-bookingImg-box {
+    position: relative;
+}
+
+.popUp-bookingImg-box:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    padding-top: 117%;
+}
+
+.close-2 {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    width: 8%;
+}
+
+.popUp-btn-wrap {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 100%;
+}
+
+.confirm-btn-wrap {
+    position: absolute;
+    bottom: 31%;
+    left: 0;
+    width: 100%;
+}
+
+.popUp-btn {
+    display: block;
+    width: 70%;
+    padding: 10px 0;
+    margin: 0 auto;
+    background-color: rgb(30, 138, 239);
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.confirm-btn {
+    width: 50%;
+}
+
+.popUp-form-wrap {
+    position: absolute;
+    left: 0;
+    top: 17%;
+    width: 100%;
+    height: 28em;
+}
+
+.popUp-form {
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+
+}
+
+.input-group {
+    padding-bottom: 10px;
+    height: 10%;
+}
+
+.input-group:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.input-group-last {
+    padding-bottom: 26px;
+}
+
+.input-label {
+    float: left;
+    width: 38%;
+    box-sizing: border-box;
+    color: #6799cc;
+    height: 100%;
+    line-height: 1.5;
+}
+
+.input-text {
+    float: left;
+    width: 62%;
+    height: 100%;
+}
+
+input {
+    display: block;
+    height: 100%;
+    line-height: 1.5;
+    width: 100%;
+    outline: none;
+    padding-left: 6px;
+    box-sizing: border-box;
+    border: none;
+    /*-webkit-border-radius: 3px;*/
+    /*-moz-border-radius: 3px;*/
+    border-radius: 5px;
+    /*background-color: #eaf3fa;*/
+}
+
+.insurance {
+    width: 100%;
+    border-top: 1px dashed #6799cc;
+    border-bottom: 1px dashed #6799cc;
+}
+
+.insurance:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.insurance-item {
+    float: left;
+    width: 50%;
+    background-color: #eaf3fa;
+    color: #6799cc;
+    padding: 14px 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+}
+
+.insurance-item:first-child {
+    border-right: 1px dashed #6799cc;
+}
+
+.book-img-box {
+    position: relative;
+}
+
+.book-img-box:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    padding-top: 30%;
+}
+
+.book-btn-wrap {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+}
+
+.book-btn-wrap button {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    padding: 8px 0;
+    background-color: #6799cc;
+    color: white;
+    font-size: 18px;
+}
+
+.sex-wrap {
+    border: 1px solid #b7cfe7;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.sex {
+    float: left;
+    width: 50%;
+    height: 100%;
+    line-height: 1.5;
+    box-sizing: border-box;
+    color: #6799cc;
+    text-align: center;
+}
+
+.sexSelected {
+    background-color: #0074e1;
+    color: white;
+}
+
+select {
+    box-sizing: border-box;
+    /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+    border: 1px solid #b7cfe7;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    /*很关键：将默认的select选择框样式清除*/
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    /*在选择框的最右侧中间显示小箭头图片*/
+    background: url("../../images/index/12_v6_700d6.png") no-repeat scroll right center white;
+    background-size: 12% auto;
+    /*background-color: white;*/
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+    padding-right: 12%;
+    height: 100%;
+    line-height: 1.5rem;
+    width: 100%;
+    outline: none;
+    background-color: #eaf3fa;
+    text-align: center;
+}
+
+select option {
+    text-align: center;
+}
+
+.address {
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #b7cfe7;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #eaf3fa;
+}
+
+.bg-white {
+    background-color: white;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.provinces {
+    width: 30%;
+    margin: 0 auto;
+    border: 1px solid #b7cfe7;
+    background-color: white;
+    color: #6799cc;
+    padding: 2px 0;
+    letter-spacing: 14px;
+    text-align: center;
+    height: 2em;
+}
+
+.province {
+    width: 80%;
+    float: left;
+    margin: 0 auto;
+    border: 1px solid #b7cfe7;
+    background-color: white;
+    color: #6799cc;
+    padding: 2px 0;
+    letter-spacing: 14px;
+    text-align: center;
+}
+
+.provinceIsClicked {
+    background-color: #6799cc;
+    color: white;
+}
+
+

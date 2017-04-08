@@ -1,0 +1,8 @@
+<div class="exchange-occupation">
+	<div class="title">请选择您的职业：</div>
+	<ul class="content">
+		<li class="list" ng-repeat="one in occupationList" ng-class="form.insure.occupationCode==one.occupationCode?'selected':''" ng-click="selectOccupation(one);">
+			{{one.occupationName}}
+		</li>
+	</ul>
+</div>

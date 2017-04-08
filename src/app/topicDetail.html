@@ -1,0 +1,21 @@
+<div class="topic-main detail">
+	<header>
+		<i class="icon-playback-play"></i>
+		<header>{{title}}</header>
+		<section>
+			<i class="icon-thumb-up" ng-if="!isLiked" ng-click="like()"></i>
+			<i class="icon-thumb-up2" ng-if="isLiked"></i>
+			{{likeCount}}
+		</section>
+	</header>
+	<hr size="1"/>
+	<section ng-repeat="p in content">
+		<article ng-if="p.type=='article'">{{p.content}}</article>
+		<header ng-if="p.type=='title'"><i class="icon-primitive-dot"></i>{{p.content}}</header>
+		<img ng-if="p.type=='img'" ng-src="{{p.content}}"/>
+		<ul ng-if="p.type=='list'">
+			<li ng-repeat="l in p.content">{{l}}</li>
+		</ul>
+	</section>
+	<a ng-if="link" ng-click="path(link.url,link.title)"><img ng-src="{{link.img}}" title="{{link.title}}"></a>
+</div>

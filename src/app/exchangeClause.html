@@ -1,0 +1,58 @@
+<div class="exchange-clause" ng-show="isLoaded">
+	<header>
+		<h1 ng-bind-html="clause.title"></h1>
+	</header>
+	<section>
+		<dl ng-repeat="one in clause.guide">
+			<dt><i></i>{{one.title}}</dt>
+			<dd>
+				<p ng-repeat="subOne in one.list" ng-bind-html="subOne"></p>
+			</dd>
+		</dl>
+	</section>
+	<section>
+		<dl>
+			<dt><i></i>{{clause.catalog.title}}</dt>
+			<dd>
+				<div ng-repeat="one in clause.catalog.list">
+					<p style="font-weight: bold;" ng-bind-html="one.title"></p>
+					<p ng-repeat="subOne in one.list" ng-bind-html="subOne"></p>
+				</div>
+			</dd>
+		</dl>
+	</section>
+	<header>
+		<h3 ng-bind-html="clause.articleTitle"></h3>
+	</header>
+	<section ng-repeat="one in clause.article">
+		<h2 ng-if="one.part" class="part">{{one.title}}</h2>
+		<h2 ng-if="!one.part">{{one.title}}</h2>
+		<dl ng-repeat="subOne in one.list">
+			<dt><i></i>{{subOne.title}}</dt>
+			<dd>
+				<p ng-repeat="littleOne in subOne.list" ng-bind-html="littleOne"></p>
+			</dd>
+		</dl>
+	</section>
+	<section ng-if="clause.table">
+		<div class="tips">{{clause.table.tips}}</div>
+		<h2>{{clause.table.title}}</h2>
+		<p ng-bind-html="clause.table.explain"></p>
+		<dl ng-repeat="one in clause.table.list">
+			<dt><i></i>{{one.title}}</dt>
+			<dd ng-if="one.list">
+				<div ng-repeat="subOne in one.list" ng-class="subOne.type=='table'?'table-wrap':''">
+					<p ng-if="subOne.type=='article'" class="article" ng-repeat="littleOne in subOne.list" ng-bind-html="littleOne"></p>
+					<p ng-if="subOne.type=='tig'" ng-repeat="littleOne in subOne.list" class="tig" ng-class="$index==0?'firtP':littleOne.indexOf('table')!=-1?'table-wrap':''" ng-bind-html="littleOne">
+					</p>
+					<ul class="table" ng-if="subOne.type=='table'">
+						<li ng-repeat="littleOne in subOne.list">
+							<span class="tdFirst">{{littleOne.tdFirst}}</span>
+							<span class="tdLast">{{littleOne.tdLast}}</span>
+						</li>
+					</ul>
+				</div>
+			</dd>
+		</dl>
+	</section>
+</div>

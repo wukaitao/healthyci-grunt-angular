@@ -1,0 +1,269 @@
+<HTML>
+
+<HEAD>
+    <meta charset="utf-8" />
+    <TITLE>Step Counter Demo</TITLE>
+</HEAD>
+
+<style>
+    button {
+        width:300px;
+        height:80px;
+    }
+</style>
+<script>
+    //判断访问终端
+    var browser={
+        versions:function(){
+            var u = navigator.userAgent, app = navigator.appVersion;
+            return {
+                trident: u.indexOf('Trident') > -1, //IE内核
+                presto: u.indexOf('Presto') > -1, //opera内核
+                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,//火狐内核
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                               android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                               iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+                               iPad: u.indexOf('iPad') > -1, //是否iPad
+                               webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+                               };
+                               }(),
+                               language:(navigator.browserLanguage || navigator.language).toLowerCase()
+                               }
+                               
+                               
+                               
+</script>
+
+<BODY>
+<br />
+<br />
+<div align="center">
+    Steps: 
+    <label id="step_value">0</label>
+</div>
+<br />
+<br />
+<button onclick="isPedometerSupport()" class="ios">Is Pedometer support</button>
+<br class="ios" />
+<br class="ios" />
+<button onclick="isPedometerAvailable()" class="ios">Is Pedometer Available</button>
+<br class="ios" />
+<br class="ios" />
+<button onclick="syncData()" class="ios">Sync Data</button>
+<br class="ios" />
+<br class="ios" />
+<button onclick="setStepCounterSettingOn(true)" class="aos">Set Step Counter On</button>
+<br class="aos" />
+<br class="aos" />
+<button onclick="setStepCounterSettingOn(false)" class="aos">Set Step Counter Off</button>
+<br class="aos" />
+<br class="aos" />
+<button onclick="isStepCounterSettingOn()" class="aos">Is Step Counter On</button>
+<br class="aos" />
+<br class="aos" />
+<button onclick="startStepCounter()">Start Step Counter</button>
+<br />
+<br />
+<button onclick="stopStepCounter()">Stop Step Counter</button>
+<br />
+<br />
+<button onclick="regStepCountReceiver()" class="aos">Register Step Count Receiver</button>
+<br class="aos" />
+<br class="aos" />
+<button onclick="unregStepCountReceiver()" class="aos">Unregister Step Count Receiver</button>
+<br class="aos" />
+<br class="aos" />
+<button onclick="getTodayStepData()">getTodayStepData</button>
+<br />
+<br />
+<button onclick="getDaysData()">getDaysData</button>
+<br />
+<br />
+<button onclick="isServiceRunning()" class="aos">isServiceRunning</button>
+<br class="aos" />
+<br class="aos" />
+<button onclick="resetDB()">resetDB</button>
+<br />
+<br />
+<a href="./app.html">H5 Feature</>
+-<br />
+-<br />
+
+</BODY>
+
+<script type="text/javascript">
+
+
+var items = browser.versions.ios == true ? document.getElementsByClassName("aos") : document.getElementsByClassName("ios");
+for (var i = 0; i < items.length; ++i) {
+    var item = items[i];
+    item.style.display="none"
+}
+
+var scheme = "http://CMBLS/cmbstep?";
+
+CMBLS = {};
+CMBLS.cmbstep = {};
+
+CMBLS.cmbstep.successCallback = function(id, data) {
+    // do something to message yourself
+    var xmlDoc;
+    if (window.DOMParser) {
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(data,"text/xml");
+    }
+	else // Internet Explorer
+  	{
+  		xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+  		xmlDoc.async = false;
+  		xmlDoc.loadXML(data); 
+  	}
+  	if (!xmlDoc) return;
+  
+    if (id == 10 || (id == 3 && browser.versions.ios)) {
+	    var steps = xmlDoc.getElementsByTagName("steps")[0].firstChild.nodeValue;
+	    var hour = xmlDoc.getElementsByTagName("hour")[0].firstChild.nodeValue;
+	    onStep(steps, hour);
+    }else if (id == 5) {
+    	var steps = xmlDoc.getElementsByTagName("steps")[0].firstChild.nodeValue;
+	    var hour = xmlDoc.getElementsByTagName("hour")[0].firstChild.nodeValue;
+	    onStep(steps, hour);
+	    updateTodayStep(steps, hour);
+    } else {
+    	alert("Success: id:" + id + ", data:" + data);
+    }
+}
+
+CMBLS.cmbstep.failCallback = function(id, data) {
+    // do something to message yourself
+    alert("Failed: id:" + id + ", data:" + data);
+}
+
+function isPedometerSupport()
+{
+    var param = "id=12&cmd=check_pedometer_support";
+    window.location.href = scheme + param;
+}
+
+function isPedometerAvailable()
+{
+    var param = "id=13&cmd=check_pedometer_available";
+    window.location.href = scheme + param;
+}
+
+function syncData()
+{
+    var param = "id=14&cmd=sync_data";
+    window.location.href = scheme + param;
+}
+
+//设置计步器开关状态
+function setStepCounterSettingOn(on) 
+{
+    var param = "id=1&cmd=set_step_counter_setting_on&on=" + on;
+    window.location.href = scheme + param;
+}
+
+//获取当前计步器开关状态
+function isStepCounterSettingOn() 
+{
+    var param = "id=2&cmd=is_step_counter_setting_on";
+    window.location.href = scheme + param;
+}
+
+//开启计步功能
+function startStepCounter()
+{
+   var param = "id=3&cmd=start_step_counter";
+   window.location.href = scheme + param;
+}
+
+//实时步数回调
+function onStep(steps, time)
+{
+    document.getElementById('step_value').innerHTML = steps;
+}
+
+//停止计步功能
+function stopStepCounter()
+{
+	var r = confirm("确定要停止计步功能？");
+	if (r == true) {
+	    var param = "id=4&cmd=stop_step_counter";
+        window.location.href = scheme + param;
+	}
+}
+
+//注册实时步接收器
+function regStepCountReceiver()
+{
+    window.location.href = scheme + "id=9&cmd=reg_step_counter_receiver";
+}
+
+//注销实时步数接收器
+function unregStepCountReceiver()
+{
+    window.location.href = scheme + "id=11&cmd=unreg_step_counter_receiver";   
+}
+
+//获取今天的步数
+function getTodayStepData()
+{
+    var param = "id=5&cmd=today_step";
+    window.location.href = scheme + param;
+}
+
+//获取最近30天数据
+function getDaysData()
+{
+    var params = "id=6&cmd=days_step&fromDate=20150801&toDate=20150831";
+    window.location.href = scheme + params;
+}
+
+//获取今天数据回调
+function updateTodayStep(steps, hour)
+{
+    alert("steps: " + steps + ", hour: " + Number(hour).toFixed(2));
+}
+
+//获取最近30数据回调
+function updateDaysData(data)
+{
+    alert(JSON.stringify(data));
+}
+
+//检测计步服务是否运行
+function isServiceRunning()
+{
+	var param = "id=7&cmd=is_step_counter_service_running";
+    window.location.href = scheme + param;
+}
+
+//检测计步服务是否运行 Callback
+function isServiceRunningCallback(isRun)
+{
+    alert(isRun);
+}
+
+//清除DB数据
+function resetDB() {
+    var r = confirm("确定要清除本地DB数据？");
+	if (r == true) {
+	    window.location.href = scheme + "id=8&cmd=reset_db&date=20150803";
+	}
+}
+
+var method = "id=5&cmd=today_step";
+window.location.href = scheme + method;　　
+
+//注册实时步数接收器
+setTimeout(function() {
+    regStepCountReceiver();
+},2000);
+
+
+</script>
+
+</HTML>

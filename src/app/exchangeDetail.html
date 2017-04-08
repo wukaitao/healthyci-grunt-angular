@@ -1,0 +1,85 @@
+<div class="exchange-detail">
+	<img ng-src="{{detail.imgUrl}}"/>
+	<div class="detail-form">
+		<ul class="form-list">
+			<li>
+				<span class="list-icon">
+					<img src="images/exchange/detail-name.png"/>
+				</span>
+				<span class="list-label"><span style="padding: 0px; display: initial; letter-spacing: 2em;">姓</span>名：</span>
+				<span class="list-input">
+					<input autocomplete="off" type="text" name="name" maxlength="10" placeholder="请填写真实姓名" ng-model="name" ng-keyup="filterName();" ng-blur="checkName();"/>
+				</span>
+			</li>
+			<li>
+				<span class="list-icon">
+					<img src="images/exchange/detail-identity.png"/>
+				</span>
+				<span class="list-label">身份证号：</span>
+				<span class="list-input">
+					<input autocomplete="off" type="text" name="identity" maxlength="18" placeholder="请填写二代身份证号码" ng-model="identity" ng-keyup="filterIdentity();"  ng-blur="checkIdentity();"/>
+				</span>
+			</li>
+			<li>
+				<span class="list-icon">
+					<img src="images/exchange/detail-mobile.png"/>
+				</span>
+				<span class="list-label">手机号码：</span>
+				<span class="list-input">
+					<input autocomplete="off" type="tel" name="mobile" maxlength="11" placeholder="用于接收投保信息" ng-model="mobile" ng-keyup="filterMobile();"  ng-blur="checkMobile();"/>
+				</span>
+			</li>
+			<li>
+				<span class="list-icon">
+					<img src="images/exchange/detail-email.png"/>
+				</span>
+				<span class="list-label"><span style="padding: 0px; display: initial; letter-spacing: 2em;">邮</span>箱：</span>
+				<span class="list-input">
+					<input autocomplete="off" type="email" name="email" maxlength="50" placeholder="用于接收电子保单" ng-model="email" ng-blur="checkEmail();"/>
+				</span>
+			</li>
+			<li>
+				<span class="list-icon">
+					<img src="images/exchange/detail-occupation.png"/>
+				</span>
+				<span class="list-label"><span style="padding: 0px; display: initial; letter-spacing: 2em;">职</span>业：</span>
+				<span class="list-input">
+					<span class="ipt" ng-class="occupationName=='请选择'?'default':''" ng-click="selectOccupation();">{{occupationName}}</span>
+				</span>
+			</li>
+		</ul>
+		<div class="form-clause">
+			<input type="checkbox" name="clause" ng-model="agree"/><span ng-click="agree=!agree">我已阅读并同意</span><a ng-click="goPage('exchangeNotice');">《保险须知》</a>、<a ng-click="goPage('exchangeClause');">《保险条款》</a>
+		</div>
+		<div class="form-button button-area">
+			<button type="button" class="long-button" ng-class="isInsuring||isDisabled ? 'gray' : ''" ng-click="insure();">立刻投保</button>
+		</div>
+		<div class="error-tips" ng-if="form.exchangeStatus==2">健康币不足，快去赚足健康币吧</div>
+	</div>
+	<div class="detail-info">
+		<ul class="info-list">
+			<li>
+				<span>投保期限：</span>
+				<span>{{info.validity}}</span>
+			</li>
+			<li>
+				<span>生效日期：</span>
+				<span>{{info.effectDate}}</span>
+			</li>
+			<li>
+				<span>承保年龄：</span>
+				<span>{{info.age}}</span>
+			</li>
+			<li>
+				<span><span style="padding: 0px; display: inline; letter-spacing: 2em;">保</span>额：</span>
+				<span>{{info.insured}}</span>
+			</li>
+		</ul>
+	</div>
+	<dl class="detail-tips">
+		<dt>保险责任</dt>
+		<dd>
+			<p ng-repeat="one in detail.liability">{{one}}</p>
+		</dd>
+	</dl>
+</div>

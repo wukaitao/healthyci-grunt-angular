@@ -1,0 +1,436 @@
+html {
+  font-size: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "microsoft yahei", 'Heiti SC';
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+}
+
+::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 0.05rem rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 0.1rem;
+  border-radius: 0.1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0.1rem;
+  border-radius: 0.1rem;
+  background: rgba(120, 120, 120, 0.8);
+  -webkit-box-shadow: inset 0 0 0.05rem rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(170, 170, 170, 0.4);
+}
+
+.main {
+  width: 100%;
+}
+
+.banner {
+  width: 10rem;
+  margin-top: 0.18666667rem;
+}
+
+.content {
+  width: 100%;
+  overflow: hidden;
+}
+
+.content-row {
+  width: 100%;
+  overflow: hidden;
+  padding-top: 0.22666667rem;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 0.22666667rem;
+}
+
+.icon {
+  width: 1.89333333rem;
+  float: left;
+  margin-left: 0.28rem;
+}
+
+.content-row-info1 {
+  width: 7.08rem;
+  float: left;
+  color: #515151;
+  font-size: 0.34666667rem;
+  margin-top: 0.12666667rem;
+  margin-left: 0.4rem;
+}
+
+.content-row-info2 {
+  width: 7.08rem;
+  float: left;
+  color: #515151;
+  font-size: 0.34666667rem;
+  margin-top: 0.12666667rem;
+  margin-left: 0.4rem;
+}
+
+.content-row-info3 {
+  width: 2.46666667rem;
+  font-size: 0.44773333rem;
+  float: left;
+  color: #0074e1;
+  margin-top: 0.34rem;
+  margin-left: 0.4rem;
+  font-weight: bold;
+}
+
+.stamp {
+  width: 2.70666667rem;
+  float: left;
+  margin-top: 0.46666667rem;
+  cursor: pointer;
+}
+
+.row-border-top {
+  border-top: 1px solid #eeeeee;
+}
+
+.footer {
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.product-related {
+  color: #919191;
+  font-size: 0.33333333rem;
+  margin-top: 0.38666667rem;
+  margin-left: 0.44rem;
+}
+
+.product-related-click {
+  color: #2074d4;
+  cursor: pointer;
+  font-size: 0.33333333rem;
+}
+
+.button {
+  background-color: #0074e1;
+  border-radius: 0.1rem;
+  width: 6.45333333rem;
+  color: #ffffff;
+  font-size: 0.46666667rem;
+  margin: 0.58666667rem auto auto auto;
+  text-align: center;
+  line-height: 1.21333333rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.more-info {
+  font-size: 0.33333333rem;
+  color: #919191;
+  width: 6.45333333rem;
+  margin: 0.22666667rem auto auto auto;
+  text-align: center;
+}
+
+.popup1 {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  left: 0;
+  top: 0;
+}
+
+.popup1-button-container {
+  width: 9rem;
+  margin: 1.6rem auto auto auto;
+}
+
+.popup1-container {
+  width: 8.4rem;
+  height: 5.01333333rem;
+  background-color: #ffffff;
+  margin: auto;
+  border-radius: 0.15rem;
+  overflow: hidden;
+}
+
+.popup1-top {
+  width: 100%;
+  line-height: 1.25333333rem;
+  font-size: 0.53333333rem;
+  color: #ffffff;
+  background-color: #32aee8;
+  text-align: center;
+}
+
+.popup1-content {
+  width: 93%;
+  height: 3.34666667rem;
+  margin: auto;
+}
+
+.popup1-content-info {
+  width: 6.92rem;
+  margin: auto auto 0.3rem auto;
+  text-align: left;
+  font-size: 0.32rem;
+  color: #32aee8;
+  line-height: 0.6rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.info-margin-top {
+  margin-top: 0.86666667rem;
+}
+
+.button-close {
+  position: absolute;
+  width: 0.68rem;
+  right: -0.03rem;
+  top: -0.3rem;
+}
+
+.popup2 {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  left: 0;
+  top: 0;
+}
+
+.popup-black {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.7;
+}
+
+.popup2-button-container {
+  width: 9rem;
+  margin: auto;
+}
+
+.popup2-container {
+  width: 8.4rem;
+  height: 12rem;
+  background-color: #ffffff;
+  margin: 1.6rem auto auto auto;
+  border-radius: 0.15rem;
+  overflow: hidden;
+}
+
+.popup2-top {
+  width: 100%;
+  line-height: 1.25333333rem;
+  font-size: 0.53333333rem;
+  color: #ffffff;
+  background-color: #32aee8;
+  text-align: center;
+}
+
+.popup2-content {
+  width: 93%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 10rem;
+  margin: 0.5rem auto auto auto;
+}
+
+.list1 {
+  width: 7.66666667rem;
+  margin: auto;
+}
+
+.list2 {
+  width: 7.66666667rem;
+  margin: auto;
+}
+
+.popup2-button-close {
+  position: absolute;
+  width: 0.68rem;
+  right: 0;
+  top: -0.3rem;
+}
+
+.popup3 {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  left: 0;
+  top: 0;
+}
+
+.popup3-container {
+  width: 8.98666667rem;
+  height: 7.78666667rem;
+  background-color: #ffffff;
+  border-radius: 0.15rem;
+  overflow: hidden;
+  margin: 2.94666667rem auto auto auto;
+}
+
+.popup3-top {
+  width: 96%;
+  text-align: center;
+  border-bottom: 1px solid #eeeeee;
+  margin: auto;
+}
+
+.poup3-title {
+  color: #515151;
+  font-size: 0.37333333rem;
+  line-height: 1.02666667rem;
+}
+
+.popup3-button-close {
+  position: absolute;
+  width: 0.6rem;
+  right: 0.33333333rem;
+  top: 0.2rem;
+}
+
+.popup3-content {
+  margin: 0 0.37333333rem;
+}
+
+.popup3-content-row {
+  width: 8.24rem;
+  height: 1.14666667rem;
+  border-radius: 0.2rem;
+  border: 1px solid #eeeeee;
+  margin-top: 0.34666667rem;
+}
+
+.popup3-content-info {
+  font-size: 0.37333333rem;
+  color: #515151;
+  line-height: 1.14666667rem;
+  margin-left: 0.24rem;
+  float: left;
+  width: 1.99333333rem;
+}
+
+.popup3-content-row input {
+  float: left;
+  padding: 0;
+  border: 0;
+  margin-left: 0.36rem;
+  width: 5.22666667rem;
+  height: 1.04666667rem;
+  color: #b6b6b6;
+  font-size: 0.34666667rem;
+}
+
+.sex-box {
+  width: 5.22666667rem;
+  float: left;
+  height: 1.14666667rem;
+}
+
+.sex {
+  float: left;
+  color: #515151;
+  width: 1.93333333rem;
+  font-size: 0.34666667rem;
+  line-height: 0.52rem;
+  background-color: #ffffff;
+  text-align: center;
+  margin-top: 0.32rem;
+  margin-left: 0.36rem;
+}
+
+.sex-click {
+  color: #ffffff;
+  background-color: #0074e1;
+}
+
+.button-appointment {
+  width: 8.25333333rem;
+  line-height: 1.21333333rem;
+  text-align: center;
+  font-size: 0.4rem;
+  color: #ffffff;
+  background-color: #0074e1;
+  border-radius: 0.2rem;
+  margin: 0.38666667rem auto auto auto;
+}
+
+.popup4 {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  left: 0;
+  top: 0;
+}
+
+.popup4-button-container {
+  width: 9rem;
+  margin: auto;
+}
+
+.popup4-container {
+  width: 8.06666667rem;
+  height: 12rem;
+  background-color: #ffffff;
+  margin: 1.6rem auto auto auto;
+  border-radius: 0.15rem;
+  overflow: hidden;
+}
+
+.popup4-top {
+  width: 100%;
+  line-height: 1.25333333rem;
+  font-size: 0.53333333rem;
+  color: #ffffff;
+  background-color: #32aee8;
+  text-align: center;
+}
+
+.popup4-content {
+  width: 93%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 10rem;
+  margin: 0.5rem auto auto auto;
+}
+
+.list {
+  width: 7.08rem;
+}
+
+.popup4-button-close {
+  position: absolute;
+  width: 0.68rem;
+  right: 0.14rem;
+  top: -0.3rem;
+}

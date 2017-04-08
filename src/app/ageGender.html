@@ -1,0 +1,27 @@
+<div class="age-gender">
+	<header class="line-tip">我们将根据您的资料提供测评结果！</header>
+	<section>
+		<header>性别</header>
+		<div class="choise" ng-if="sex==1">
+			<div><img src="images/test/gender1-1.png">男</div>
+			<div><img src="images/test/gender2-1.png" ng-click="setSex(2)">女</div>
+		</div>
+		<div class="choise" ng-if="sex==2">
+			<div><img src="images/test/gender1-2.png" ng-click="setSex(1)">男</div>
+			<div><img src="images/test/gender2-2.png">女</div>
+		</div>
+	</section>
+	<section>
+		<header>年龄</header>
+		<div class="choise">
+			<a ng-class="{cur: age=='其他'}" ng-click="setAge('其他')">其他</a>
+			<a ng-class="{cur: age=='70后'}" ng-click="setAge('70后')">70后</a>
+			<a ng-class="{cur: age=='80后'}" ng-click="setAge('80后')">80后</a>
+			<a ng-class="{cur: age=='90后'}" ng-click="setAge('90后')">90后</a>
+			<a ng-class="{cur: age=='00后'}" ng-click="setAge('00后')">00后</a>
+		</div>
+	</section>
+	<section>
+		<a class="long-button" ng-click="submit()" ng-class="{disable: !age}">确&nbsp;&nbsp;&nbsp;&nbsp;定</a>
+	</section>
+</div>

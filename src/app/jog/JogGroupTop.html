@@ -1,0 +1,156 @@
+<style>
+
+    .jog-group-top {
+        padding-top: 44px;
+    }
+	.jog-group-top-list{
+        padding-top: 71px;
+	}
+    ul.ranking-content {
+        padding: 0 15px;
+        box-shadow: none;
+    }
+
+    ul.ranking-content.move-down {
+        transform:translateY(58px);
+
+        transition: transform 0.2s;
+        -moz-transition: -moz-transform 0.2s;
+        -webkit-transition: -webkit-transform 0.2s;
+        -o-transition: -o-transform 0.2s;
+    }
+
+    ul.ranking-content li {
+        font-size: 14px;
+        padding: 10px 0px 0px 0px;
+    }
+
+    ul.ranking-content li:first-child {
+        border-top: 1px solid #d3d3d3;
+    }
+
+    .item-list-icon {
+        width: 28px;
+        color: #8a8a8a;
+        vertical-align: top;
+    }
+
+    .item-list-icon p {
+        vertical-align: top;
+        font-size: 18px;
+        line-height: 55px;
+        text-align: center;
+        margin-left: -16px;
+    }
+
+    .more-link-arrow {
+        width: 25px;
+        vertical-align: top;
+    }
+
+    .more-link-arrow i {
+        font-size: 14px;
+        vertical-align: 1px;
+        color: #a6a6a6;
+        line-height: 55px;
+    }
+
+    .item-content .info-main {
+        line-height: 1;
+    }
+    .item-content .info-main .name{
+    	display: inline-block;
+    	vertical-align: middle;
+    	max-width: 150px;
+    	padding-right: 8px;
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+    }
+    .item-content .info-main .total{
+    	display: inline-block;
+    	vertical-align: middle;
+    	max-width: 100px;
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        color: #56a0f0;
+    }
+    .item-content .info {
+        font-size: 12px;
+        color: #929292;
+    }
+    .item-content .info span{
+    	padding-right: 8px;
+    }
+    .item-content .record {
+        font-size: 12px;
+        color: #929292;
+    }
+
+
+    .jog-group-top .button-area {
+        /*margin: 0 15px;*/
+        display: flex;
+        display: -webkit-flex;
+        position: fixed;
+        width: 100%;
+        padding: 19px 15px;
+        background: #FFF;
+        /*border-bottom: 1px solid #d3d3d3*/
+    }
+
+    .jog-group-top .button-area button {
+        font-size: 16px;
+        flex-grow: 1;
+        -webkit-flex-grow: 1;
+        margin: 0 25px 0 0;
+    }
+    .jog-group-top .button-area button:last-child {
+        margin: 0;
+    }
+    .jog-group-top .button-area .passive {
+        background: transparent;
+        color: #929292;
+        border: 1px solid #cccccc;
+    }
+
+    .middle-button {
+        border-radius: 15px;
+    }
+    .topNo{
+        color: #56a0f0;
+    }
+
+</style>
+<div class="jog-group-top">
+    <div class="button-area">
+        <button class="middle-button" ng-class="{'passive':rankType!=0}" ng-click="topClick(0)">本周</button>
+        <button class="middle-button" ng-class="{'passive':rankType!=1}" ng-click="topClick(1)">本月</button>
+        <button class="middle-button" ng-class="{'passive':rankType!=2}" ng-click="topClick(2)">总计</button>
+    </div>
+    <div class="jog-group-top-list">
+        <ul id="can_dropped_groups" class="ranking-content view-code-content">
+            <li ng-repeat="item in groups" ng-click="selectClick(item.groupId)">
+                <div class="tdcell item-list-icon">
+                    <p ng-class="$index<3?'topNo':''">{{$index+1}}</p>
+                </div>
+                <div class="tdcell item-content">
+                    <p class="info-main">
+                    	<span class="name">{{item.groupName}}</span>
+                    	<span class="total">{{item.groupSum | formatSum}}</span>
+                    </p>
+                    <p class="info">
+                    	<span>{{item.province}}</span>
+                    	<span>{{item.city}}</span>
+                    	<span>共{{item.groupMemCount}}人</span>
+                    	<span>人均：{{item.groupAverage | formatSum}}</span>
+                    </p>
+                    <!--<p class="record"><span ng-bind="rangeName"></span>里程<span>{{item.groupSum | formatSum}}</span>  人均<span>{{item.groupAverage | formatSum}}</span></p>-->
+                </div>
+                <div class="tdcell text-right more-link-arrow"><i class="icon-arrow"></i></div>
+            </li>
+        </ul>
+    </div>
+</div>
+

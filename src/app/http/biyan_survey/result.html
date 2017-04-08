@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+  <title></title>
+  <script src="js/ids.js"></script>
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="css/result_portrait.css">
+  <!--<link rel="stylesheet" href="/css/fa4/css/font-awesome.min.css">-->
+  <meta name="viewport" content="initial-scale = 1, user-scalable = no">
+  <script src="js/result2.js"></script>
+</head>
+
+<body>
+<script>
+  var partner_openid = window.localStorage.getItem('partner_openid');
+
+  function getlucky(){
+    var vpath="https://hms-sit.test-cignacmb.com/hmc_rhinitis_server/"+partner_openid+"/showUserInfo";
+    $("#formlucky").attr("action", vpath).submit();
+  }
+
+
+  $(document).ready(function () {
+    var surveyid = survey_ids[0];
+    var theSurveyInfo = survey_info[surveyid];
+    var charttype = 2;
+    var startpage = survey_info[surveyid].survey_page;
+    var followimg = "../images/jyklcode.jpg";
+    var followcontent = "关注招商信诺，关注健康";
+    var indexstyle = theSurveyInfo.index_style;
+    var zbstyle = theSurveyInfo.zb_style;
+
+    document.title = theSurveyInfo.result_page_title;
+    drawPage = resultpage_init(
+        window,
+        document,
+        surveyid,
+        charttype,
+        theSurveyInfo.type,
+        startpage,
+        survey_infos,
+        followimg,
+        followcontent,
+        indexstyle,
+        zbstyle
+    );
+
+    $.getScript("js/wxapi.js", function () {
+      wx_args = {
+        share_title: theSurveyInfo.share_title,
+        share_descr: theSurveyInfo.share_descr,
+        share_img_url: theSurveyInfo.share_img_url,
+        share_url: theSurveyInfo.share_url
+      };
+      register_wxpai(wx_args);
+    });
+    if (!window.localStorage.getItem(surveyid + 'ori')) {
+      window.location.replace(startpage);
+    } else {
+      drawPage(parseInt(charttype));
+    }
+  });
+</script>
+
+<div class="top-menu">
+  <a class="position-left back-button" onclick="getReturnUrl()"></a>
+  <h1>一分钟测鼻炎</h1>
+</div>
+<div style="height: 44px"></div>
+
+<div id="wrapper0x">
+  <canvas id="dx_canvas" width="400" height="100"></canvas>
+</div>
+
+<div id="wrapper0">
+  <canvas id="d_canvas" width="400" height="400"></canvas>
+</div>
+
+<div id="wrapper0y">
+  <canvas id="dy_canvas" width="400" height="100"></canvas>
+</div>
+
+<div id="wrapper1" class="topline">
+  <canvas id="t_canvas" width="400" height="400"></canvas>
+</div>
+
+<div id="wrapper2" class="topline">
+  <canvas id="s_canvas" width="400" height="400"></canvas>
+</div>
+
+<div id="program" class="program">
+</div>
+
+<div id="pack" style="text-align: center">
+  <!--<div id="btn1" class="topline">
+    <div style="height: 20px"></div>
+    <div class="gcomments" style="color: red">
+      截止到4月29号，完成鼻炎测试的用户均有机会参与抽奖赢取奖品哦，快留下信息参与抽奖吧！
+    </div>
+    <div style="height: 20px"></div>
+    <form id="formlucky" name="form" method="post" action="">
+    <input type="submit" name="submit" value="提交" class="zbtn">
+      <div id="luckydraw" class="zbtn" onclick="getlucky(this)" style="width: 80%">参与抽奖</div>
+    </form>
+    <div style="height: 20px"></div>
+  </div>-->
+  <div id="btn2" class="topline">
+    <div style="height: 20px"></div>
+    <div id="rtest" class="zbtn" onclick="returnSurvey(this)" style="width: 80%">重新测试</div>
+  </div>
+  <br><br>
+  <!--<div id="slogan" class="slogan">-->
+    <!--<a href="http://www.ihaola.com.cn/code.html" style="color: #cccccc">招商信诺|好啦科技</a>-->
+  <!--</div>-->
+</div>
+
+<br>
+</body>
+</html>

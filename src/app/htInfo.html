@@ -1,0 +1,12 @@
+<div class="ht-main info">
+	<header>
+		<header>{{title}}</header>
+		<!--section class="hint">更新：{{update}}</section-->
+	</header>
+	<section ng-repeat="p in content">
+		<article ng-if="p.type=='article'">{{p.content}}</article>
+		<header ng-if="p.type=='title'">{{p.content}}</header>
+		<img ng-if="p.type=='img'" ng-src="{{p.content}}"/>
+		<img ng-if="p.type=='img_w'" ng-src="{{p.content}}" class="img_w"/>
+	</section>
+</div>

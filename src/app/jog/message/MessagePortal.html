@@ -1,0 +1,104 @@
+<style>
+
+    .message-portal {
+        padding-top: 44px;
+    }
+
+    ul.ranking-content {
+        padding: 0 15px;
+        box-shadow: none;
+    }
+
+    ul.ranking-content li {
+        font-size: 14px;
+        padding: 10px 0 0 0;
+    }
+
+    .item-list-icon {
+        width: 45px;
+        color: #8a8a8a;
+        vertical-align: top;
+    }
+
+    .item-list-icon img {
+        width: 36px;
+    }
+
+    .more-link-arrow {
+        width: 30px;
+        vertical-align: top;
+    }
+
+    .more-link-arrow i {
+        font-size: 14px;
+        vertical-align: 1px;
+        color: #a6a6a6;
+        line-height: 55px;
+    }
+
+    .item-content .name {
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        display: inline;
+        line-height: 25px;
+    }
+    .badge {
+        background: #ff5a00;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .item-content .info {
+        font-size: 12px;
+        color: #929292;
+    }
+    .item-content .info.have {
+        color: #ff5a00;
+    }
+	.disabled{
+		color: #ddd !important;
+	}
+</style>
+<div class="message-portal">
+    <ul class="ranking-content view-code-content">
+        <li ng-click="path('friendApplyMessage')">
+            <div class="tdcell item-list-icon">
+                <img src="images/jog/icon-jog-friend.png">
+            </div>
+            <div class="tdcell item-content">
+                <p class="name">好友请求</p><div ng-if="friendMailStatus" class="badge"></div>
+                <p ng-if="friendMailStatus" class="info have"><span>{{friendMailStatus}}</span>条未处理</p>
+                <p ng-if="!friendMailStatus" class="info">没有未处理</p>
+            </div>
+            <div class="tdcell text-right more-link-arrow"><i ng-class="!friendMsgNum ? 'disabled':''" class="icon-arrow"></i></div>
+        </li>
+        <li ng-click="path('groupPkMessage')">
+            <div class="tdcell item-list-icon">
+                <img src="images/jog/icon-jog-message.png">
+            </div>
+            <div class="tdcell item-content">
+                <p class="name">团战消息</p><div ng-if="groupMailStatus" class="badge"></div>
+                <p ng-if="groupMailStatus" class="info have"><span>{{groupMailStatus}}</span>条未处理</p>
+                <p ng-if="!groupMailStatus" class="info">没有未处理</p>
+            </div>
+            <div class="tdcell text-right more-link-arrow"><i ng-class="!groupMailMsgNum ? 'disabled':''" class="icon-arrow"></i></div>
+        </li>
+        <li ng-click="path('jogGroupMessage')">
+            <div class="tdcell item-list-icon">
+                <img src="images/jog/icon-jog-message2.png">
+            </div>
+            <div class="tdcell item-content">
+                <p class="name">跑团消息</p><div ng-if="jogStatus" class="badge"></div>
+                <p ng-if="jogStatus" class="info have"><span>{{jogStatus}}</span>条未处理</p>
+                <p ng-if="!jogStatus&&isHead"  class="info">没有未处理</p>
+                <p ng-if="!jogStatus&&!isHead"  class="info">0条未处理</p>
+            </div>
+            <div class="tdcell text-right more-link-arrow"><i ng-class="!jogMsgNum ? 'disabled':''" class="icon-arrow"></i></div>
+        </li>
+    </ul>
+
+</div>
+

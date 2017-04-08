@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="telephone=no" name="format-detection"/>
+  <title>重疾险</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="https://jic.talkingdata.com/app/h5/v1?appid=26F8F1158EED2CE81C8254D3B378C240&vn=Development&vc=2.0.0"></script>
+  <style type="text/css">
+		*,*:before,*:after{
+			box-sizing: border-box;
+			font-size: 16px;
+			outline: none;
+		}
+		body{
+			padding: 0;
+			margin: 0;
+			background: #ffffff;
+			font-family: -apple-system-font, "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+			color: #333;
+			font-size: 14px;
+			line-height: 1.42857143;
+		}
+		h1{
+			font-weight: 500;
+			line-height: 1.1;
+		}
+		.hide{
+			display: none !important;
+		}
+		.position-left {
+			position: absolute;
+			top: 0;
+			left: 7px;
+			z-index: 6;
+		}
+		.top-menu {
+			width: 100%;
+			height: 44px;
+			position: fixed;
+			top: 0;
+			z-index: 6;
+			background: #fff;
+			box-shadow: 0 1px 5px 0 #b3b3b3;
+		}
+		a.back-button {
+			display: inline-block;
+			width: 44px;
+			height: 44px;
+			padding: 9px 10px 10px 9px;
+			border: none;
+			background: url("img/back_button.png") no-repeat;
+			background-size: cover;
+			background-origin: content-box;
+		}
+		.top-menu > h1 {
+			font-size: 18px;
+			text-align: center;
+			color: #383838;
+			margin: 0;
+			padding: 12px 0;
+			position: relative;
+		}
+  	.modal{
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 10;
+			background-color: rgba(0,0,0,0.8);
+		}
+		.modal-dialog {
+			display: table;
+			width: 100%;
+			height: 100%;
+		}
+		.modal-content {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.modal-content header{
+			background-color: #fff;
+			width: 90%;
+			padding: 0 5px;
+			margin: 0 auto;
+			text-align: right;
+			margin-bottom: 0;
+			border-radius: 6px 6px 0 0;
+		}
+		.modal-content header a{
+			display: inline-block;
+			width: 44px;
+			height: 44px;
+			padding: 10px;
+			background: url('img/close_button.png') no-repeat;
+			background-size: cover;
+			background-origin: content-box;
+			float: right;
+			position: relative;
+			z-index: 100;
+		}
+		.modal-content header h2{
+			font-weight: 500;
+			line-height: 1.1;
+			display: block;
+			text-align: center;
+			color: #383838;
+			border-bottom: 1px solid #E5E5E5;
+			padding: 14px 0 12px 44px;
+			margin: 0;
+		}
+		.modal-content article{
+			width: 90%;
+			padding: 15px;
+			margin: 0 auto;
+			border-radius: 0 0 6px 6px;
+			background: #fff;
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;
+			color: #5d5d5d;
+		}
+		.modal-content section{
+			border: 1px solid #E5E5E5;
+			border-radius: 5px;
+			padding: 10px;
+			margin-bottom: 15px;
+			overflow: auto;
+		}
+		.modal-content section span.btn{
+			float: right;
+			width: 80px;
+			text-align: center;
+		}
+		.modal-content section span.btn.cur{
+			background-color: #0074e1;
+			color: #fff;
+		}
+		.modal-content section input{
+			text-align: right;
+			border: none;
+			float: right;
+			-webkit-appearance: none;
+			width: 150px;
+		}
+		.modal-content section label{
+			float: left;
+		}
+		.long-button{
+			padding: 12px 0;
+			width: 100%;
+			border: 1px solid #0061BC;
+			border-radius: 5px;
+			background: #0074e1;
+			color: #fff;
+		}
+		.long-button.disable{
+			background-color: #acacac !important;
+			border: 1px solid #acacac !important;
+		}
+		.error{
+			color: red;
+			margin: -15px 0 15px 0;
+		}
+		.submit-success {
+			position: fixed;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+			width: 150px;
+			height: 50px;
+			line-height: 50px;
+			border-radius: 10px;
+			background: rgba(0, 0, 0, 0.7);
+			color: #fff;
+			font-weight: bold;
+			z-index: 8;
+			text-align: center;
+		}
+		/** 调整样式 **/
+		.main{
+			padding: 44px 0 0 0;
+		}
+  </style>
+</head>
+<body>
+<script type="text/javascript">
+  (function ($, document, window) {
+
+    var fontSize = $(window).width() / 10;
+    $("html").css('font-size', fontSize + 'px');
+
+  })(jQuery, document, window);
+</script>
+<div class="top-menu">
+	<a class="position-left back-button" href="javascript:history.back();" id="backBtn"></a>
+	<h1>重疾险</h1>
+</div>
+<div class="main">
+  <img class="banner" src="img/banner.png" alt="">
+  <div class="content">
+    <div class="content-row">
+      <img class="icon" src="img/icon1.png" alt="">
+      <div class="content-row-info3">保障范围广</div>
+      <div class="content-row-info1">65种重疾！35种特定疾病！5种少儿疾病！</div>
+    </div>
+    <div class="content-row row-border-top">
+      <img class="icon" src="img/icon2.png" alt="">
+      <div class="content-row-info3">没病享收益</div>
+      <div class="content-row-info2">最高128%满期返还金！</div>
+    </div>
+    <div class="content-row row-border-top">
+      <img class="icon" src="img/icon3.png" alt="">
+      <div class="content-row-info3">保费减免多</div>
+      <div class="content-row-info1">35种特定疾病，一旦发现，
+        剩余保费全免！
+      </div>
+    </div>
+    <div class="content-row row-border-top">
+      <img class="icon" src="img/icon4.png" alt="">
+      <div class="content-row-info3">统统都能赔</div>
+      <div class="content-row-info2">疾病&意外都能赔！</div>
+    </div>
+    <div class="row-border-top"></div>
+  </div>
+  <div class="footer">
+    <div class="product-related">详情请阅读<span id="disease-list" class="product-related-click">《可投保的疾病列表》</span><span
+        id="insurance"
+        class="product-related-click">《保险条款》</span>
+    </div>
+    <div class="button" id="booking">立即预约</div>
+    <div class="more-info">了解更多重疾险内容，请预约咨询！</div>
+  </div>
+</div>
+
+<div class="popup1">
+  <div class="popup-black"></div>
+  <div class="popup1-button-container">
+    <div class="popup1-container">
+      <div class="popup1-top">保险条款</div>
+      <div class="popup1-content">
+        <div id="c1" class="popup1-content-info info-margin-top">1. 招商信诺安享康健两全保险C款条款</div>
+        <div id="c2" class="popup1-content-info">2. 招商信诺附加安享康健重大疾病保险C款条款</div>
+      </div>
+    </div>
+    <img class="button-close" src="img/button-close.png" alt="">
+  </div>
+</div>
+
+<div class="popup2">
+  <div class="popup-black"></div>
+  <div class="popup2-button-container">
+    <div class="popup2-container">
+      <div class="popup2-top">保险条款</div>
+      <div class="popup2-content">
+        <img class="list1" src="img/list1-1.png" alt="">
+        <img class="list1" src="img/list1-2.png" alt="">
+        <img class="list1" src="img/list1-3.png" alt="">
+        <img class="list1" src="img/list1-4.png" alt="">
+        <div id="list2ID" class="list2">
+          <img class="list2" src="img/list2-1.png" alt="">
+          <img class="list2" src="img/list2-2.png" alt="">
+          <img class="list2" src="img/list2-3.png" alt="">
+          <img class="list2" src="img/list2-4.png" alt="">
+          <img class="list2" src="img/list2-5.png" alt="">
+          <img class="list2" src="img/list2-6.png" alt="">
+          <img class="list2" src="img/list2-7.png" alt="">
+          <img class="list2" src="img/list2-8.png" alt="">
+          <img class="list2" src="img/list2-9.png" alt="">
+          <img class="list2" src="img/list2-10.png" alt="">
+          <img class="list2" src="img/list2-11.png" alt="">
+        </div>
+      </div>
+    </div>
+    <img class="popup2-button-close" src="img/button-close.png" alt="">
+  </div>
+</div>
+
+<div class="popup4">
+  <div class="popup-black"></div>
+  <div class="popup4-button-container">
+    <div class="popup4-container">
+      <div class="popup4-top">可投保的疾病列表</div>
+      <div class="popup4-content">
+        <img class="list" src="img/list.png" alt="">
+      </div>
+    </div>
+    <img class="popup4-button-close" src="img/button-close.png" alt="">
+  </div>
+</div>
+
+</div>
+
+<iframe class="hide" name="bookingIframe" id="bookingIframe"></iframe>
+<div class="submit-success hide" id="bookingSuccess">
+	<span>预约成功！</span>
+</div>
+<div class="modal hide" id="bookingModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<header>
+				<a id="close"></a>
+				<h2>请正确填写您的信息</h2>
+			</header>
+			<article>
+				<form method="post" action="http://hms-uat.test-cignacmb.com/cmc-lg/formCmc2Action_saveForm.action" target="bookingIframe" id="bookingForm">
+					<section>
+						<label>姓名</label>
+						<input autocomplete="off" maxlength="10" type="text" placeholder="请输入姓名" name="name" id="bookingName"/>
+					</section>
+					<div class="error hide" id="nameError">请输入姓名</div>
+					<section>
+						<label>性别</label>
+						<span class="btn cur" data-gender="F">女</span>
+						<span class="btn" data-gender="M">男</span>
+					</section>
+					<section>
+						<label>手机号码</label>
+						<input autocomplete="off" maxlength="11" type="tel" placeholder="请输入手机号码" name="mobile" id="bookingMobile"/>
+					</section>
+					<div class="error hide" id="mobileError">请输入正确的手机号码</div>
+					<button class="long-button" id="submit">信息无误，确认预约！</button>
+					<input type="hidden" id="province" name="province" value=""/>
+					<input type="hidden" id="gender" name="gender" value="F"/>
+					<input type="hidden" id="iqid" name="iqId" value=""/>
+					<input type="hidden" id="campaign" name="campaignCode" value="1LDG486DA7"/>
+					<input type="hidden" id="url" name="url" value=""/>
+					<input type="hidden" id="product" name="product" value="CMB"/>
+					<input type="hidden" id="pagename" name="pageName" value=""/>
+					<input type="hidden" id="urlflag" name="urlFlag" value=""/>
+					<input type="hidden" id="mcid" name="wtmcId" value=""/>
+					<input type="hidden" id="searchwords" name="searchWords" value=""/>
+					<input type="hidden" id="remark" name="remark" value=""/>
+					<input type="hidden" id="pyid" name="pyid" value=""/>
+					<input type="hidden" id="gridsumid" name="gridsumid" value=""/>
+				</form>
+			</article>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+    //不同分辨率适配
+    function mainResize() {
+      var fontSize = $(window).width() / 10;
+      $("html").css('font-size', fontSize + 'px');
+    }
+
+    $(window).resize(function () {
+      mainResize();
+    });
+
+    mainResize();
+
+		//TDAPP.onEvent("4-健康关爱计划","");
+
+		$("#backBtn").attr("href",decodeURIComponent(location.search.substring(1)));
+		
+		$('#url').val(window.location.href.replace(/index.html/,'lgResult.html'));
+
+		//预约成功
+		window.onload = function(){
+			var iframe=$("#bookingIframe")[0];
+			var bookingLoad=function(){
+				var success=iframe.contentWindow.location.search.indexOf('status=200')!=-1;
+				if(success){
+					$("#bookingSuccess").removeClass("hide");
+					setTimeout(function(){$('#bookingSuccess').addClass('hide');},3000);
+					//重置表单
+					$('#bookingName').val('');
+					$('#bookingMobile').val('');
+					$('[data-gender="F"]').addClass('cur').siblings().removeClass('cur');
+				}
+			}
+			if (iframe.attachEvent) iframe.attachEvent("onload",bookingLoad);
+			else iframe.onload=bookingLoad;
+		};
+
+		//点击立刻预约
+		$("#booking").click(function(){
+			//TDAPP.onEvent("4-健康关爱计划","立刻预约");
+			$("#bookingModal").removeClass("hide");
+		});
+
+		//点击关闭
+		$("#close").click(function(){
+			$("#bookingModal").addClass("hide");
+		});
+
+		//中文过滤
+		var bookingName="";
+		var chReg = new RegExp("^[\u2E80-\u9FFF]*$");
+		var onNameInput=function(){
+			if (chReg.test(this.value)){
+				bookingName=this.value;
+				$("#nameError").addClass("hide");
+			}
+			else this.value=bookingName;
+		};
+		$("#bookingName").on("input",onNameInput);
+		$("#bookingName").on("compositionstart",function(){
+			$("#bookingName").off("input",onNameInput);
+		});
+		$("#bookingName").on("compositionend",function(){
+			$("#bookingName").on("input",onNameInput);
+		});
+
+		//电话过滤
+		var bookingMobile="";
+		var mobileReg = new RegExp("^(1([3|4|5|7|8][0-9]{0,9})?)?$");
+		$("#bookingMobile").on("input",function(){
+			if (mobileReg.test(this.value)){
+				bookingMobile=this.value;
+				$("#mobileError").addClass("hide");
+			}
+			else this.value=bookingMobile;
+		});
+
+		//性别选择
+		$("#bookingModal .btn").click(function(){
+			var $this=$(this);
+			$("#gender").val($this.data("gender"));
+			$this.addClass("cur").siblings(".btn").removeClass("cur");
+		});
+
+		//完整性校验
+		$("#bookingForm").submit(function(){
+			var hasError=false;
+			if($("#bookingMobile").val().length<11){
+				$("#mobileError").removeClass("hide");
+				hasError=true;
+			}
+			if($("#bookingName").val()==""){
+				$("#nameError").removeClass("hide");
+				hasError=true;
+			}
+			if(hasError) return false;
+			$("#bookingModal").addClass("hide");
+		});
+
+    //点击<保险条款> 显示popup1
+    $('#insurance').bind('click', function () {
+      $('.popup1').show();
+    });
+
+    //点击关闭按钮 隐藏popup1
+    $('.button-close').bind('click', function () {
+      $('.popup1').hide();
+    });
+
+    //点击关闭按钮 隐藏popup2
+    $('.popup2-button-close').bind('click', function () {
+      $('.popup2').hide();
+    });
+
+    //点击<可投保的疾病列表> 显示popup4
+    $('#disease-list').bind('click', function () {
+      $('.popup4').show();
+    });
+
+    //点击关闭按钮 隐藏popup4
+    $('.popup4-button-close').bind('click', function () {
+      $('.popup4').hide();
+    });
+
+    //点击1. 招商信诺安享康健两全保险C款条款
+    $('#c1').bind('click', function () {
+      $('.popup2').show();
+      $('.popup1').hide();
+
+      $('.popup2-content').scrollTop(0);
+    });
+
+    //点击2. 招商信诺附加安享康健重大疾病保险C款条款
+    $('#c2').bind('click', function () {
+      $('.popup2').show();
+      $('.popup1').hide();
+
+      $('.popup2-content').scrollTop($('#list2ID').position().top);
+    });
+
+  });
+</script>
+</html>

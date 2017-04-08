@@ -1,0 +1,33 @@
+<div class="community-create">
+    <h3 class="text-center">请选择主题创建组团战</h3>
+    <ul class="battleGroup">
+        <li class="battleGroup-li" ng-repeat="sysTask in form.sysTaskList" ng-click="createDetailsFn(sysTask)">
+            <div ng-class="getCCBgClass(sysTask)">
+                <span>{{sysTask.taskName}}</span>
+                <img ng-src="{{sysTask.imgName}}">
+            </div>
+            <div class="brttleGroup-content clearfix">
+                <ul class="brttleGroup-details">
+                    <li>
+                        <div class="tdcell text-center font-icon"><i class="icon-aims"></i></div>
+                        <div class="tdcell items-title">目标:</div>
+                        <div class="tdcell" ng-if="sysTask.taskId !='5'">{{sysTask.targetStepNum|convertMyriabitFilter}}步</div>
+                        <div class="tdcell" ng-if="sysTask.taskId =='5'">{{sysTask.userDefined}}</div>
+                    </li>
+                   
+                    <li>
+                        <div class="tdcell text-center font-icon"><i class="icon-coin"></i></div>
+                        <div class="tdcell items-title">押注:</div>
+                        <div class="tdcell">{{sysTask.userDefined}}健康币</div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<style type="text/css">
+    body{
+        background: url('../images/team-invite-bg.jpg') repeat;
+    }
+</style>

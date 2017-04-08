@@ -1,0 +1,23 @@
+<div class="question-result">
+    <div class="list-head">
+    </div>
+    <div class="result-content">
+        <h3 class="font-blue">健康小建议</h3>
+        <ul class="advise-list">
+            <li ng-repeat="result in form.questionResult.suggestion  track by $index">{{result.title}}</li>
+        </ul>
+        <br>
+        <h3 class="font-blue">健康任务</h3>
+        <ul class="advise-list">
+         <li ng-repeat="result in form.questionResult.record  track by $index">{{result.title}}</li>
+        </ul>
+        <div class="button-area">
+          <a class="long-button" ng-click="bankCardFn()">创建个人健康档案</a>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    body{
+        background: url('images/question-bodybg.jpg') repeat;
+    }
+</style>

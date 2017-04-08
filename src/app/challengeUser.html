@@ -1,0 +1,36 @@
+<div class="choose-palyer challenge-admin">
+    <div ng-class="getCUBgClass(form.userTask)">
+        <h2>{{form.userTask.taskName}}</h2>
+        <ul class="brttleGroup-details clearfix">
+            <li>
+                <div class="tdcell text-left font-icon"><i class="icon-aims"></i></div>
+                <div class="tdcell items-title">目标:</div>
+                <div class="tdcell">{{form.userTask.targetStepNum|convertMyriabitFilter}}步</div>
+            </li>
+            <li>
+                <div class="tdcell text-left font-icon"><i class="icon-time"></i></div>
+                <div class="tdcell items-title">时间:</div>
+                <div class="tdcell">{{form.userTask.schedule}}</div>
+            </li>
+            <li>
+                <div class="tdcell text-left font-icon"><i class="icon-coin"></i></div>
+                <div class="tdcell items-title four-font">累积押注:</div>
+                <div class="tdcell text-left">{{form.userTask.taskReward}}健康币</div>
+            </li>
+        </ul>
+    </div>
+    <ul class="ranking-content">
+        <p class="font-blue text-center">已有{{taskMembers.length}}位团友</p>
+        <li ng-repeat="taskMember in taskMembers" >
+            <div class="tdcell friend-message" >
+                <h5 class="font-black"><i ng-if="taskMember.isOwn==1" class="icon-counter"></i> {{taskMember.userName}}</h5>
+                <i class="icon-steps"></i> <span class="font-grey">{{taskMember.totalSteps | number}}</span> <i class="icon-coin"></i> <span class="font-grey">{{taskMember.score | number}}</span>
+            </div>
+            <div class="tdcell text-right btn-area" ng-if="!taskMember.isFriend">
+            <a class="check-button uncheck-button checked"  ng-click="addFriendFn($event,taskMember.userId)"><i class="icon-wrong"></i></a>
+            </div>
+            <div class="tdcell text-right btn-area" ng-if="taskMember.isFriend">
+            </div>
+        </li>
+    </ul>
+</div>

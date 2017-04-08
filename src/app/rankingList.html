@@ -1,0 +1,46 @@
+<div class="ranking-list">
+    <div class="list-head {{showFriend?'':'world-rank'}}">
+        <ul class="title-tab">
+            <li ng-click="showFriendBtn()" class="{{showFriend?'titleon':''}}">
+                <a>好友排名</a>
+            </li>
+            <li ng-click="showWorldBtn()"  class="{{!showFriend?'titleon':''}}">
+                <a>世界排名</a>
+            </li>
+        </ul>
+        <div class="whitebar"></div>
+        <div class="ranking-7days">
+            <h2>本周排名</h2>
+            <ul class="clearfix">
+                <li class="pull-left"><i class="icon-grouptitle"></i> 我的排名</li>
+                <li class="pull-right" ng-if="showRankList.userRank">第<span class="places">{{showRankList.userRank}}</span>名</li>
+                
+            </ul>
+        </div>
+    </div>    
+    <ul class="ranking-content" >
+        <li ng-repeat="rank in showRankList.rankList" id=" {{rank.userId==form.userData.userId?'self':''}}" class=" {{rank.userId==form.userData.userId?'userbg':''}}">       
+            <div class="tdcell ranking-places">第<span class="rank-num">{{rank.userRank}}</span>名</div>
+            <div class="tdcell ranking-img "><span class="{{rank.sex==1?'man':'woman'}}">{{rank.level}}</span></div>
+            <div class="tdcell name-leavel">
+                <span class="name font-overflow">{{rank.nickName}}</span>               
+            </div>
+            <div class="text-right tdcell ranking-nums"><span class="steps">{{rank.userStep | formatSteps}}</span>步</div>
+            <div class="tdcell text-right btn-area" ng-if="!showFriend">
+               <a class="invite-friend-btn invited" ng-if="rank.userId!=form.userData.userId" ng-click="addFriendFn($event,rank.userId)"><i class="icon-wrong"></i></a>
+            </div>
+        </li> 
+        <div class="no-message text-center"><h4 ng-if="!showRankList.userRank">{{loadingTips}}</h4></div>   
+    </ul>
+</div>
+
+
+<div class="submit-success text-center hide" id="validateSuccess">
+    <span class="success-icon"><i class="icon-right"></i></span>
+    <span id="successMsg"></span>
+</div>
+
+<div class="submit-success text-center hide" id="validateError">
+    <span class="success-icon error"><i class="icon-wrong"></i></span>
+    <span id="errorMsg"></span>
+</div>

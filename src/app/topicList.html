@@ -1,0 +1,9 @@
+<div class="topic-main list">
+	<ul>
+		<li ng-repeat="topic in topiclist" ng-click="topicDetail(topic.link,topic.title)">
+			<header>{{topic.title}}</header>
+			<article>{{topic.summary}}</article>
+			<img ng-src="{{topic.top}}"/>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,166 @@
+<style>
+
+    .select-leader {
+        padding-top: 44px;
+    }
+
+    .search-box {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #d3d3d3;
+        border-radius: 5px;
+        position: relative;
+        line-height: 37px;
+    }
+    .search-box input {
+        width: 78%;
+        height: 30px;
+        border: none;
+        line-height: 30px;
+        margin-left: 2%;
+        font-size: 12px;
+        border-right: 1px solid #d3d3d3;
+    }
+    .search-box .btn-search {
+        position: absolute;
+        top: 0;
+        display: block;
+        right: 14px;
+        width: 40px;
+        height: 40px;
+        left: 87%;
+    }
+    .search-box .btn-search img {
+        height: 20px;
+    }
+
+    ul.ranking-content {
+        padding: 0 15px;
+        box-shadow: none;
+    }
+
+    ul.ranking-content li {
+        font-size: 14px;
+        padding: 12px 0;
+    }
+
+    .item-content .name img {
+        width: 14px;
+        margin-left: 20px;
+    }
+    .item-content .total {
+        color: #929292;
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .item-operation .button {
+        width: 22px;
+        height: 22px;
+        background: transparent;
+        border: 1px solid #087bfd;
+        font-size: 0;
+        text-align: center;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .item-operation .button.added {
+        background: #cccccc;
+    }
+    .item-operation .button.selected {
+        background: #087bfd;
+        color: #fff;
+    }
+    .item-operation .button i {
+        font-size: 18px;
+        line-height: 17px;
+    }
+    .item-operation .button i.moving {
+        font-size: 13px;
+        line-height: 21px;
+    }
+    .item-operation .button .hook {
+        width: 9px;
+        height: 12px;
+        border-top: none;
+        border-left: none;
+        border-right: 1px solid #087bfd;
+        border-bottom: 1px solid #087bfd;
+        position: relative;
+        left: 6px;
+        top: 3px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+    .item-operation .button.selected .hook {
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+    }
+
+    .select-leader-list {
+		padding-top: 70px;
+    }
+    ul.ranking-content li .tdcell:first-child{
+    	width: 75%;
+    }
+    ul.ranking-content li .tdcell:last-child{
+    	width: 25%;
+    }
+    ul.ranking-content li .tdcell .name span{
+    	display: inline-block;
+    	max-width: 155px;
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+    	white-space: nowrap;
+    	vertical-align: middle;
+    }
+	.search-area{
+		padding: 15px;
+		position: fixed;
+		width: 100%;
+		background-color: #fff;
+		z-index: 10;
+	}
+    .fixedTopmenu{
+    	position: absolute;
+    }
+    .select-leader-list.setMarginbottom{
+    	margin-bottom: 80px;
+    }
+</style>
+<div class="select-leader">
+    <div class="search-area">
+        <div class="search-box">
+            <input id="search-input" type="text" placeholder="输入姓名查找" ng-model="form.searchMember"/>
+            <a class="btn-search" ng-click="searchClick()">
+                <img src="images/jog/icon-jog-search.png">
+            </a>
+        </div>
+    </div>
+    <div class="select-leader-list" ng-class="!!selectedUserId ? 'setMarginbottom' : ''">
+	    <ul class="ranking-content view-code-content">
+	        <li ng-repeat="item in memberInfo.list" ng-click="selectClick(item)">
+	            <div class="tdcell item-content">
+	                <p class="name">
+	                    <span ng-bind="item.userName"></span>
+	                    <img ng-if="item.userSex==1" class="sex" src="images/jog/icon-jog-male.png">
+	                    <img ng-if="item.userSex==2" class="sex" src="images/jog/icon-jog-female.png">
+	                </p>
+	                <p class="total">累积：{{item.userSum | formatSum}}</p>
+	            </div>
+	            <div class="tdcell text-right item-operation">
+	                <div class="button" ng-class="{selected: selectedUserId == item.userId}">
+	                    <div class="hook"></div>
+	                </div>
+	            </div>
+	        </li>
+	    </ul>
+	</div>
+    <div class="operation" ng-if="!!selectedUserId">
+        <div class="button-area" style="padding-left: 15px;padding-right: 15px;position: fixed;bottom: 0px;width: 100%;background: #FFF;">
+            <button class="long-button" ng-click="submitClick();">确定</button>
+        </div>
+    </div>
+
+</div>
+

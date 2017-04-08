@@ -1,0 +1,176 @@
+html, body {
+    position: relative;
+    height: 100%;
+    /*overflow: scroll;*/
+}
+
+body {
+    background: white;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.header .titleText {
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    line-height: 7vh;
+    color: grey;
+    font-size: 1.2rem !important;
+}
+
+.header-main {
+    height: 44px;
+    background: black;
+}
+
+.withHeader {
+    background-position: 0 44px !important;
+
+}
+
+.withoutHeader {
+    background-position: 0 0 !important;
+
+}
+
+.mainUp {
+    position: absolute;
+    bottom: 2%;
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    left: 0px;
+}
+
+.mainUp img {
+    height: 70% !important;
+}
+
+.explainAndCase {
+    background-color: #E9F3F9;
+    position: absolute;
+    /*top: 69%;*/
+    bottom: 17%;
+    left: 0%;
+    width: 100%;
+    height: 56px;
+    border-bottom: 1px dashed #6896C9;
+    border-top: 1px dashed #6896C9;
+    color: #6896C9;
+}
+
+.explain {
+    border: none;
+    width: 49%;
+    border-right: 1px dashed #6896C9;
+    padding: 0px;
+    float: left;
+    background-color: #E9F3F9;
+    text-align: center;
+    height: 56px;
+}
+
+.explain div {
+    margin-top: 14px;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.Case {
+    border: none;
+    width: 50%;
+    padding: 0px;
+    float: right;
+    background-color: #E9F3F9;
+    text-align: center;
+    height: 56px;
+}
+
+.Case div {
+    margin-top: 14px;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.booking {
+    position: absolute;
+    width: 40%;
+    /*top: 82%;*/
+    bottom: 5%;
+    text-align: center;
+    left: 30%;
+    height: 56px;
+}
+
+.booking img {
+    width: 100%;
+}
+
+.bottomFont {
+    font-size: 0.65rem;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    /*top: 91%;*/
+    bottom: 2%;
+    color: #7D7F80;
+}
+
+/*针对高度较小的安卓机型*/
+@media screen and (max-height: 520px) {
+    .mainUp {
+        bottom: 0% !important;
+    }
+
+    .bottomFont {
+        bottom: 1% !important;
+    }
+
+    .booking {
+        bottom: 2% !important;
+    }
+
+    .explainAndCase {
+        bottom: 16% !important;
+    }
+
+    .mainBackground4 {
+        background-size: 100% 65% !important;
+    }
+
+    .mainUp img {
+        height: 50% !important;
+    }
+}
+
+/*针对5s ios 8.4 版本适配问题*/
+@media screen and (max-width: 320px) {
+    .mainUp {
+        bottom: 0% !important;
+    }
+
+    .bottomFont {
+        bottom: 3% !important;
+    }
+
+    .booking {
+        bottom: 9% !important;
+    }
+
+    .explainAndCase {
+        bottom: 22% !important;
+    }
+
+    .mainBackground4 {
+        background-size: 100% 60% !important;
+    }
+
+    .mainUp img {
+        height: 50% !important;
+    }
+}

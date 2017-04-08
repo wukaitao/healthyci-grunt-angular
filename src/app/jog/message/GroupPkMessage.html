@@ -1,0 +1,149 @@
+<style>
+
+    .group-pk-message {
+        padding-top: 44px;
+    }
+
+    body {
+        background: #eaeaea;
+    }
+
+    ul.ranking-content {
+        padding: 0 15px;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    ul.ranking-content li {
+        font-size: 14px;
+        padding: 0;
+        background: #fff;
+        margin: 10px 0;
+        border-radius: 7px;
+        overflow: hidden;
+    }
+
+    li .title {
+        width: 100%;
+        position: relative;
+    }
+    li .title img {
+        width: 100%;
+        height: 62px;
+    }
+    li .title p {
+        color: #fff;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        line-height: 62px;
+        font-size: 18px;
+    }
+
+    li .info-panel {
+        padding: 10px;
+    }
+    li .info-panel .panel-bar {
+        display: table;
+        width: 100%;
+        font-size: 14px;
+        color: #0a9aff;
+    }
+    li .info-panel .panel-bar .bar-left {
+        display: table-cell;
+    }
+    li .info-panel .panel-bar .bar-right {
+        display: table-cell;
+    }
+    li .info-panel .panel-bar .bar-right i {
+        font-size: 12px;
+    }
+
+    li .info-panel .info-row {
+        display: table;
+        width: 100%;
+    }
+    li .info-panel .info-row .item {
+        display: table-cell;
+        font-size: 13px;
+    }
+    li .info-panel .info-row .item img {
+        width: 18px;
+    }
+    li .info-panel .info-row .item span.text {
+        color: #b3b3b3;
+    }
+
+    .item-list-icon img {
+        width: 36px;
+    }
+
+    .operation {
+        width: 100%;
+        text-align: center;
+    }
+    .operation .middle-button {
+        font-size: 12px;
+        width: 80px;
+        height: 31px;
+        margin-top: 10px;
+        padding: 4px;
+    }
+    .operation .middle-button.accepted {
+        background: #c7c7c7;
+        border: 1px solid #c7c7c7;
+    }
+    .operation p.notice {
+        padding: 10px 0;
+        font-size: 12px;
+        color: #b3b3b3;
+    }
+
+</style>
+<div class="group-pk-message">
+    <ul class="ranking-content view-code-content">
+        <li ng-repeat="group in form.groupList">
+            <div class="title">
+                <img ng-src="{{group.imageUrl}}">
+                <p>{{group.taskName}}</p>
+            </div>
+            <div class="info-panel">
+                <div class="panel-bar">
+                    <div class="bar-left">
+                        <p><span>{{group.nickName}}</span>邀请您参加</p>
+                    </div>
+                    <div class="bar-right text-right">
+                        <span ng-click="delMailByGame($event,group.id,$index)">删除</span><i class="icon-arrow" style="vertical-align: middle;margin-left: 5px;"></i>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="item">
+                        <img src="images/jog/icon-jog-aim.png">
+                        <span>目标：</span><span class="text">{{group.targetStepNum|convertMyriabitFilter}}步</span>
+                    </div>
+                    <div class="item">
+                        <img src="images/jog/icon-jog-users.png">
+                        <span>玩家：</span><span class="text">最少2人</span>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="item">
+                        <img src="images/jog/icon-jog-coins.png">
+                        <span>押注：</span><span class="text">{{group.baseCoin}}健康币</span>
+                    </div>
+                    <div class="item">
+                        <img src="images/jog/icon-jog-time.png">
+                        <span>时间：</span><span class="text">{{group.schedule}}</span>
+                    </div>
+                </div>
+                <div class="operation">
+                    <button class="middle-button" ng-if="compareDate(group)&&group.status==0" ng-click="acceptInvite(group)">立即参加</button>
+                    <button class="middle-button accepted" ng-if="group.status==1">已报名团战</button>
+                    <p class="notice" ng-if="!compareDate(group)&&group.status==0">已经开团了，挤不进去了</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+

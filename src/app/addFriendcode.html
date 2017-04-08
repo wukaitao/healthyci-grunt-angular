@@ -1,0 +1,25 @@
+<div class="friend-code">
+    <div class="list-head text-center">
+        <span class="font-lightblue"><i class="icon-adduser"></i></span>
+    </div>
+    <div class="mycode-content text-center">
+        <h3 class="font-black">请输入好友邀请码</h3>        
+        <form class="code-number">
+            <input type="text" ng-model="code"  maxlength='4' autocapitalize="off" autocorrect="off" id="code">
+        </form>
+        <div style="padding-top:10px;">字母区分大小写</div>
+        <a class="mycode-link" ng-click="friendMycodeFn()">我的邀请码 <i class="icon-arrow"></i></a>
+    </div>
+</div>
+<div class="submit-success text-center hide">
+   <span class="success-icon"><i class="icon-right"></i></span>
+   <span>已加为好友</span>
+</div>
+<div class="submit-success text-center hide" id="validateError">
+    <span class="success-icon error"><i class="icon-wrong"></i></span>
+    <span>添加好友失败！</span>
+</div>
+<div class="submit-success text-center hide" id="validateError2">
+    <span class="success-icon error"><i class="icon-wrong"></i></span>
+    <span>不能加自己为好友</span>
+</div>

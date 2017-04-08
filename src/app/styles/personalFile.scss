@@ -1,0 +1,2027 @@
+/* community mainpage start */
+
+.my-community {
+    padding-top: 41px;
+    .main-containt {
+        padding: 13px 10px 15px 10px;
+        background: url('../images/background.jpg') no-repeat top center;
+        background-size: cover;
+    }
+    .content-whitebg {
+        padding-top: 10px;
+        margin-top: 15px;
+        font-size: 16px;
+    }
+    ul.daten-item li {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        margin-bottom: 6px;
+    }
+    ul.daten-item li:last-child {
+        margin-bottom: 0px;
+    }
+    .user-image {
+        width: 45%;
+        margin-top: -10px;
+    }
+    ul.daten-item {
+        width: 50%;
+        margin-top: 10px;
+    }
+    .user-image img {
+        width: 100%;
+        height: auto;
+    }
+    .running-img.leavel-5-man {
+        transform: scale(0.95, 0.95);
+        -webkit-transform: scale(0.95, 0.95);
+        -moz-transform: scale(0.95, 0.95);
+        -o-transform: scale(0.95, 0.95);
+    }
+    i.icon-user3{
+    	font-size: 24px;
+    }
+    i.icon-pencil {
+    	font-size: 11px;
+    	margin-left: 10px;
+    }
+    p.textPerfect{
+        margin: -8px;
+        font-size: 14px;
+        color: red;
+    }
+    .icon-style {
+        width: 30%;
+        text-align: center;
+        font-size: 34px;
+        position: relative;
+    }
+    .icon-style i.icon-medal {
+        position: relative;
+        font-size: 38px;
+        vertical-align: -7px;
+        z-index: 1;
+    }
+    .icon-style b.star-color {
+        display: inline-block;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #5BC3D0;
+        z-index: 0;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+    }
+    .daten-style {
+        font-size: 30px;
+        color: #d5ffff;
+    }
+    .icon-style {
+        font-size: 28px;
+    }
+    .icon-style i.icon-medal {
+        font-size: 34px;
+        vertical-align: -7px;
+    }
+    .fix-td-width {
+        width: 100px;
+    }
+    .leval-progress {
+        width: 100%;
+        height: 30px;
+        position: relative;
+    }
+    .leval-count {
+        position: absolute;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(0, 0, 74, 0.15);
+        line-height: 30px;
+        text-align: center;
+        color: #d5ffff;
+    }
+    .leval-progress progress {
+        width: 80%;
+        height: 10px;
+        margin: 10px 0 0 29px;
+        border: none;
+        background: rgba(0, 0, 74, 0.15);
+    }
+    .leval-progress progress::-moz-progress-bar {
+        background: #d6ff9f;
+    }
+    .leval-progress progress::-webkit-progress-bar {
+        background: rgba(0, 0, 74, 0.15);
+    }
+    .leval-progress progress::-webkit-progress-value {
+        background: #d6ff9f;
+    }
+    .feature-title {
+        margin-top: 15px;
+    }
+    .feature-title li {
+        display: inline-block;
+        width: 48%;
+        padding: 6px 0;
+    }
+    .feature-title li:first-child {
+        border-right: 1px solid rgba(255, 255, 255, 1)
+    }
+    .feature-title li a {
+        color: #fff;
+        font-size: 16px;
+    }
+    .feature-title .title-icon-style {
+        position: relative;
+        padding-right: 5px;
+    }
+    .title-icon-style i {
+        vertical-align: -2px;
+    }
+    .title-icon-style i.icon-mail-open {
+        font-size: 16px;
+        vertical-align: 0;
+    }
+    .remind-circle {
+        display: inline-block;
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        margin-left: 3px;
+        border-radius: 5px;
+        background: #f6931c;
+    }
+    .white-bg {
+        padding: 15px 10px;
+    }
+    .column {
+        width: 49%;
+        border: 1px solid #7094b9;
+        border-radius: 8px;
+    }
+    .column a.title {
+        display: table;
+        width: calc(100% + 1px);
+        height: 70px;
+        padding: 0 10px;
+        border-radius: 7px 7px 0 0;
+        color: #fff;
+        text-shadow: 1px 1px 1px #7a7a7a;
+    }
+    .ranking a.title {
+        background: url('../images/rank-bg.jpg') no-repeat top right;
+        background-size: cover;
+    }
+    .column a.title .sort-title {
+        font-size: 18px;
+    }
+    .column a.title .more-icon {
+        font-size: 18px;
+    }
+    .des-section {
+        display: table;
+        width: 100%;
+        height: 50px;
+        padding: 0 8px;
+        color: #0d7db5;
+    }
+    .icon-group i {
+        font-size: 18px;
+        padding-right: 5px;
+        vertical-align: -4px;
+    }
+    .places {
+        font-size: 24px;
+        padding: 0 2px;
+    }
+    .des-section .places {
+        vertical-align: -3px;
+    }
+    .column-item {
+        height: 225px;
+        padding: 10px 8px 10px 8px;
+        border-radius: 0 0 8px 8px;
+        background: url('../images/column-item-bg.png') repeat rgba(229, 229, 229, 0.5);
+        font-size: 12px;
+    }
+    .column-item .name,
+    .column-item .walk-amount {
+        font-size: 14px;
+    }
+    .ranking-week .grade .name {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        word-wrap: normal;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .ranking .column-item li {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 7px 0;
+        color: #5d5d5d;
+    }
+    .ranking .column-item li:last-child {
+        margin-bottom: 0px;
+    }
+    .rank {
+        width: 44px;
+    }
+    .rank .places {
+        color: #0d7db5;
+        vertical-align: -3px;
+    }
+    .shoes-icon {
+        width: 45px;
+    }
+    .leavel {
+        width: 30px;
+        height: 30px;
+        margin: 5px 5px 0 5px;
+        border-radius: 50%;
+        background: #fff;
+    }
+    .walk-amount {
+        font-weight: bold;
+    }
+    .team .des-section {
+        padding-top: 5px;
+    }
+    .team .des-section .tdcell {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    .team a.title {
+        background-repeat: no-repeat;
+        background-position: top right;
+        background-size: cover;
+        background-image: url('../images/pao-bg.jpg');
+    }
+    .team a.team-creat .more-icon {
+        display: inline-block;
+        padding: 5px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 1px 2px 3px #7a7a7a;
+        line-height: 14px;
+        color: #0074e1;
+        text-shadow: 0px 0px 0px #7a7a7a;
+    }
+    a.team-creat .team-title {
+        font-size: 20px;
+    }
+    .team-ranking .column-item h5 {
+        margin-top: 0;
+    }
+    .team .column-item li {
+        display: table;
+        width: 100%;
+        margin-bottom: 7px;
+    }
+    .team .column-item li:last-child {
+        margin-bottom: 0;
+    }
+    .circle-pie {
+        position: relative;
+        transform: rotate(-90deg);
+    }
+    @media(max-width: 320px) {
+        .circle-pie {
+            transform: scale(0.9, 0.9)rotate(-90deg);
+        }
+        .mask h5 {
+            width: 40%;
+            margin: 0 auto;
+            margin-bottom: 0 !important;
+        }
+    }
+    .mask {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        color: #21bdcf;
+        font-size: 14px;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        h5 {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .day hr {
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background: none;
+            border: none;
+            border-bottom: 1px solid #21bdcf;
+            vertical-align: -2px;
+        }
+        .day span,
+        .hour,
+        .minute {
+            font-size: 18px;
+            padding: 0 3px;
+        }
+    }
+    .ranking-ending-status,
+    .ranking-time-status {
+        position: relative;
+        padding: 0;
+    }
+    .ranking-ending-content,
+    .ranking-time-content {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        margin: 0;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        font-size: 16px;
+        color: #5d5d5d;
+    }
+    .ranking-ending-content p {
+        margin: 15px 0 3px 0;
+    }
+    .ranking-ending-content a {
+        color: #5d5d5d;
+    }
+    .number-area {
+        width: 50px;
+        vertical-align: bottom !important;
+    }
+    .team-rank {
+        width: 40px;
+        height: 50px;
+        padding-top: 20px;
+        font-size: 20px;
+        text-align: center;
+        background: url('../images/icons/icon-rankbg.png') no-repeat;
+        background-size: 100% auto;
+        background-position: 0 15px;
+    }
+    .team .first {
+        color: #fdc60a;
+        background: url('../images/icons/icon-rank-first-bg.png') no-repeat;
+        background-size: 100% auto;
+        background-position: 0 -5px;
+    }
+    .team .second {
+        color: #e3769f;
+    }
+    .team .third {
+        color: #dcaa6f;
+    }
+    .team-member div.name {
+        width: 60px;
+        white-space: nowrap;
+        word-wrap: normal;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .team-member .progress-bar {
+        width: 100%;
+        height: 8px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 1);
+    }
+    .team-member .progress-bar::-moz-progress-bar {
+        background: #21bdcf;
+    }
+    .team-member .progress-bar::-webkit-progress-bar {
+        background: rgba(255, 255, 255, 1);
+    }
+    .team-member .progress-bar::-webkit-progress-value {
+        background: #21bdcf;
+    }
+    .run-amount {
+        color: #21bdcf;
+        font-size: 14px;
+    }
+    .ranking-none,
+    .team-creat-content {
+        position: relative;
+        width: 100%;
+        height: 275px;
+        border-radius: 0 0 8px 8px;
+        background: url('../images/column-item-bg.png') repeat rgba(229, 229, 229, 0.5);
+    }
+    .ranking-none p,
+    .team-creat-link {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+    }
+    .ranking-none p {
+        font-size: 16px;
+    }
+    .team-creat-link a {
+        display: table;
+        width: 100%;
+        padding: 0 5px;
+    }
+    .cut-off {
+        padding: 15px 0;
+    }
+    .cut-off hr {
+        display: inline-block;
+        width: 35%;
+        height: 4px;
+        background: none;
+        border: none;
+        border-bottom: 1px solid rgba(94, 202, 204, 0.7);
+    }
+    .cut-off span {
+        vertical-align: 3px;
+        padding: 0 5px;
+    }
+    .team-creat-link .add-icon,
+    .team-creat-link .bell-icon,
+    .champion-icon {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        line-height: 55px;
+        border-radius: 50%;
+        background: #0074e1;
+        font-size: 30px;
+        color: #ffffff;
+    }
+    .team-creat-link .arrow i {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .team-creat-link .bell-icon {
+        position: relative;
+    }
+    .team-creat-link .reminder {
+        display: inline-block;
+        position: absolute;
+        top: 8px;
+        left: 50px;
+        width: 8px;
+        height: 8px;
+        border-radius: 5px;
+        background: #f6931c;
+    }
+    .team-creat-link p {
+        margin: 15px 0;
+    }
+    /* fix smaller screen style start */
+    @media(max-width: 320px) {
+        .user-image {
+            margin-top: -20px;
+        }
+        .running-img.leavel-5-man {
+            transform: scale(0.85, 0.85) translateX(-10px);
+            -webkit-transform: scale(0.85, 0.85) translateX(-10px);
+            -moz-transform: scale(0.85, 0.85) translateX(-10px);
+            -o-transform: scale(0.85, 0.85) translateX(-10px);
+        }
+        .daten-style {
+            font-size: 26px;
+        }
+        .ranking-week .column-item {
+            padding-top: 0;
+        }
+        .des-section {
+            height: 45px;
+            font-size: 12px;
+            padding: 0 8px;
+        }
+        .des-section .places {
+            font-size: 20px;
+            vertical-align: -3px;
+        }
+        .icon-group i {
+            font-size: 16px;
+            padding-right: 5px;
+            vertical-align: -4px;
+        }
+        .leavel {
+            margin: 5px 2px 0 2px;
+        }
+        .rank .places {
+            color: #0d7db5;
+            font-size: 18px;
+            vertical-align: 0;
+        }
+        .shoes-icon {
+            width: 40px;
+        }
+        .team-ranking h5 {
+            margin-bottom: 0;
+        }
+        .ranking .column-item li {
+            padding: 7px 0;
+            margin-bottom: 5px;
+        }
+        .team .column-item li {
+            margin-bottom: 0;
+        }
+        .team .des-section {
+            padding-top: 0;
+        }
+        .team .des-section .tdcell:first-child {
+            margin-top: 6px;
+        }
+        .team-member div {
+            margin-bottom: -3px;
+        }
+        .number-area {
+            width: 35px;
+        }
+        .team-rank {
+            width: 30px;
+            height: 57px;
+            margin-right: 6px;
+            padding-top: 30px;
+            font-size: 16px;
+            background-position: 0 27px;
+        }
+        .team .first {
+            color: #fdc60a;
+            background: url('../images/icons/icon-rank-first-bg.png') no-repeat;
+            background-size: 100% auto;
+            background-position: 0 13px;
+        }
+        .ranking-none,
+        .team-creat-content {
+            height: 270px;
+        }
+        .team-creat-link .add-icon,
+        .team-creat-link .bell-icon,
+        .champion-icon {
+            display: inline-block;
+            width: 43px;
+            height: 43px;
+            line-height: 46px;
+            border-radius: 50%;
+            font-size: 25px;
+        }
+        .team-creat-link .arrow i {
+            font-size: 18px;
+        }
+        .team-creat-link .reminder {
+            left: 43px;
+        }
+    }
+    /* fix smaller screen style end */
+}
+
+
+/* community mainpage end */
+
+
+/* personal file start */
+
+.personal-file {
+    position: fixed;
+    top: 44px;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    .list-head {
+        height: 160px;
+        background-image: url('../images/personalfile-bg.jpg');
+        background-position: right;
+        background-size: cover;
+    }
+    ul.ranking-content li {
+        padding: 20px 0 15px 0;
+        font-size: 16px;
+        table-layout: automatic !important;
+    }
+    ul.ranking-content li i {
+        font-size: 18px;
+        margin-right: 10px;
+        vertical-align: -3px;
+        width: 22px;
+        display: inline-block;
+        text-align: center;
+    }
+    ul.ranking-content li input,
+     ul.ranking-content li textarea{
+        width: 80%;
+        display: inline-block;
+        border: none;
+        background: transparent;
+        resize:none;
+    }
+    .demo-cont {
+        display: table;
+        width: 100%;
+    }
+    .demo-cont input {
+        width: 80%;
+        text-align: right;
+        color: #0d7db5;
+    }
+    @media(max-width: 320px) {
+        .demo-cont .tdcell {
+            white-space: nowrap;
+            word-wrap: normal;
+        }
+    }
+    .button-area{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .tips{
+        line-height: 28px;
+        text-align: center;
+        color: #888;
+        font-size: 14px;
+    }
+}
+
+
+/* personal file end */
+
+
+/* add firend start */
+
+.add-friend {
+    padding-top: 44px;
+    .list-head {
+        padding: 50px 15px;
+        background-image: url('../images/addfriends-bg.jpg');
+        background-position: right;
+        background-size: cover;
+    }
+    h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #fff;
+        text-shadow: 0 3px 6px #448ea9;
+    }
+    .search-area {
+        display: table;
+        width: 100%;
+        border: 1px solid #0171bb;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+    .search-area input {
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+        border: none;
+        border-radius: 8px 0 0 8px;
+    }
+    .search-area button {
+        display: inline-block;
+        height: 34px;
+        padding: 0 15px;
+        border: none;
+        border-left: 1px solid #c4c4c4;
+        border-radius: 0 8px 8px 0;
+        background-color: #fff;
+        font-size: 26px;
+        color: #898989;
+    }
+    ul.ranking-content li {
+        font-size: 16px;
+    }
+    .font-grey {
+        font-size: 12px;
+    }
+    .item-list-icon {
+        width: 35px;
+        color: #8a8a8a;
+    }
+    .item-list-icon i {
+        vertical-align: -3px;
+        font-size: 26px;
+    }
+    .item-list-icon i.icon-user {
+        font-size: 23px !important;
+    }
+    .more-link-arrow {
+        width: 30px;
+    }
+    .more-link-arrow i {
+        font-size: 18px;
+        vertical-align: -2px;
+        color: #0074e1;
+    }
+    a.invite-link {
+        display: inline-block;
+        width: 90px;
+        padding: 5px 0;
+        border: 1px solid #0074e1;
+        border-radius: 5px;
+        text-align: center;
+        color: #0074e1;
+        font-size: 14px;
+    }
+    a.invited {
+        border: 1px solid #ababab;
+        color: #ababab;
+    }
+    a.invite-link:hover,
+    a.invite-link:focus {
+        border: 1px solid #0061BC;
+        background-color: #F2F8FD !important;
+    }
+    .radio-btn a {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 26px;
+        margin: 0;
+    }
+    .activity-end{
+        width:150px;
+        color:red;
+        font-size:15px;
+    }
+}
+
+.managemant {
+    ul.ranking-content li {
+        font-size: 16px !important;
+    }
+}
+
+
+/* add firend end */
+
+
+/* firend code start */
+
+.friend-code {
+    position: fixed;
+    top: 44px;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    overflow: auto;
+    .list-head {
+        padding: 30px 15px;
+        background-image: url('../images/addfriends-bg.jpg');
+        background-position: right;
+        background-size: cover;
+        color: #fff;
+    }
+    .list-head span {
+        font-size: 80px;
+        text-shadow: 0 3px 6px #448ea9;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    .code {
+        padding-left: 30px;
+        font-size: 60px;
+        letter-spacing: 30px;
+    }
+    .timer {
+        position: relative;
+        width: 85%;
+        height: 5px;
+        margin: 15px auto;
+        border-top: 1px solid #0d7db5;
+        border-bottom: 1px solid #0d7db5;
+    }
+    .font-area {
+        position: absolute;
+        top: -13px;
+        width: 100%;
+        text-align: center;
+    }
+    .font-area i {
+        vertical-align: -2px;
+    }
+    .font-area span {
+        padding: 0 10px;
+        background: #fff;
+        font-size: 20px;
+    }
+    .code-number input {
+        display: inline-block;
+        width: 70%;
+        padding: 0;
+        border: none;
+        border-bottom: 2px solid #0d7db5;
+        border-radius: 0;
+        font-size: 50px;
+        letter-spacing: 10px;
+        text-align: center;
+        color: #0d7db5;
+    }
+    .code-number input:focus {
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #0d7db5;
+        box-shadow: none;
+    }
+    a.mycode-link {
+        display: inline-block;
+        margin: 0 auto;
+        margin-top: 30%;
+        padding: 10px 15px;
+        border-radius: 20px;
+        border: 1px solid #0d7db5;
+        color: #0d7db5;
+    }
+    @media(max-width: 320px) {
+        a.mycode-link {
+            margin-top: 20%;
+        }
+        .list-head {
+            padding: 15px;
+        }
+    }
+}
+
+
+/* firend code end */
+
+
+/* ranking list start */
+
+.ranking-list {
+    padding-top: 44px;
+    .list-head {
+        background-size: cover;
+        background-image: url('../images/rank-friend-bg.jpg');
+        background-position: right;
+    }
+    .world-rank {
+        background-image: url('../images/rank-world-bg.jpg');
+        background-position: center;
+    }
+    ul.title-tab li.titleon a {
+        background-color: rgba(30, 128, 155, 0.36);
+        border: 1px solid rgba(213, 255, 255, 0.5);
+        color: #fff;
+    }
+    .ranking-7days {
+        padding: 20px 15px;
+        color: #fff;
+        font-size: 16px;
+    }
+    .ranking-7days h2 {
+        margin-top: 5px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-size: 26px;
+        text-shadow: 0px 3px 5px rgba(69, 69, 69, 0.5);
+    }
+    .ranking-7days i {
+        vertical-align: -2px;
+    }
+    .ranking-7days .places {
+        padding: 0px 6px;
+        font-size: 30px;
+        line-height: 14px;
+    }
+    ul.ranking-content li.userbg{
+        background-color: #eaeaea;
+    }
+    ul.ranking-content li {
+        .rank-num {
+            font-size: 24px;
+            vertical-align: -2px;
+        }
+        .name-leavel .name {
+            display: inline-block;
+            width: 69px;
+            font-size: 14px;
+        }
+        .ranking-img span {
+            display: inline-block;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 50px;
+        }
+        .ranking-img span.man {
+            background: url('../images/icons/icon-leavel-bg.png') center no-repeat;
+            background-size: cover;
+            color: #eb6100;
+        }
+        .ranking-img span.woman {
+            background: url('../images/icons/icon-leavel-green-bg.png') center no-repeat;
+            background-size: cover;
+            color: #32b16c;
+        }
+        .btn-area {
+            width: 35px;
+        }
+    }
+    a.invite-friend-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        line-height: inherit;
+        padding: 6px 0 0 0;
+    }
+    .no-message {
+        position: absolute;
+        top: 60%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+    }
+    .no-message h4 {
+        font-size: 14px;
+    }
+    @media(max-width: 320px) {
+        ul.ranking-content li .name-leavel .name {
+            width: 60px;
+        }
+        ul.ranking-content li .ranking-img span {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+        }
+        a.invite-friend-btn {
+            border-radius: 15px;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+        }
+    }
+}
+
+
+/* ranking list end */
+
+
+/* mail box start */
+
+.mailbox {
+    padding-top: 44px;
+    .list-head {
+        padding: 10px 15px 0 15px;
+        background-image: url('../images/addfriends-bg.jpg');
+        background-position: right top;
+        background-size: 100% auto;
+        color: #fff;
+    }
+    ul.title-tab li.titleon a {
+        border: 1px solid rgba(235, 248, 255, 0.7);
+        background-color: rgba(30, 128, 155, 0.36);
+    }
+    .whitebar {
+        margin-bottom: 10px;
+    }
+    .list-head span {
+        font-size: 60px;
+        text-shadow: 0 3px 6px #448ea9;
+    }
+    .friend-name {
+        font-size: 16px;
+    }
+    .brttleGroup-details li {
+        font-size: 14px !important;
+    }
+    .brttleGroup-details i.icon-coin {
+        font-size: 21px;
+    }
+    ul.ranking-content li {
+        overflow: hidden;
+    }
+    .middle-button {
+        font-size: 14px;
+    }
+    .wrap-friend {
+        display: table;
+        width: 100%;
+        margin-left: 0;
+        transition: margin-left 0.5s
+    }
+    .wrap-friend .inviting-btn {
+        position: relative;
+    }
+    .wrap-friend .inviting-btn .delete-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        height: 32px;
+    }
+    .inviting-btn {
+        width: 90px;
+    }
+    .delete-btn {
+        width: 90px;
+        transform: translateX(90px);
+    }
+    .invited {
+        background: rgba(138, 138, 138, 0.7) !important;
+        border: 1px solid rgba(138, 138, 138, 0.7) !important;
+    }
+    .delete-btn a {
+        color: #fff;
+    }
+    ul.ranking-content .font-grey {
+        font-size: 12px;
+    }
+    ul.brttleGroup-details {
+        width: 100%;
+        padding: 0 8px;
+        color: #5d5d5d;
+        font-size: 14px;
+    }
+    .brttleGroup-content h4.group-title {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        font-size: 16px;
+    }
+    .del-area {
+        width: 52px;
+    }
+    .brttleGroup-content h4.group-title span {
+        display: inline-block;
+        overflow: hidden;
+    }
+    span.font-overflow {
+        width: 90px;
+    }
+    .button-area {
+        padding: 0;
+    }
+    .no-message {
+        position: absolute;
+        top: 60%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+    }
+    .no-message h4 {
+        font-size: 14px;
+    }
+    @media(max-width: 320px) {
+        span.font-overflow {
+            width: 75px;
+        }
+    }
+}
+
+
+/* mail box end */
+
+
+/* battle share style start */
+
+.choose-palyer {
+    padding-top: 44px;
+    .list-head {
+        padding: 10px 15px;
+        background-image: url('../images/pao-bg.jpg');
+        background-position: center bottom;
+        background-size: cover;
+        color: #fff;
+        text-shadow: 0 2px 2px rgba(83, 83, 83, 0.7);
+    }
+    ul.title-tab li.titleon a {
+        background-color: rgba(30, 128, 155, 0.5);
+    }
+    .whitebar {
+        margin-bottom: 10px;
+    }
+    .list-head span {
+        font-size: 80px;
+        color: rgba(255, 255, 255, 0.8);
+        text-shadow: 0 3px 4px rgba(83, 83, 83, 0.7);
+    }
+    .share-btn {
+        color: #d5ffff;
+        font-size: 12px;
+        padding-top: 18px;
+    }
+    .share-btn i {
+        vertical-align: -1px;
+    }
+    .ranking-places {
+        width: 70px !important;
+    }
+    .ranking-content p {
+        margin-bottom: 0;
+        font-size: 16px;
+        color: #0b74cc;
+    }
+    .ranking-content {
+        padding-top: 20px;
+    }
+    .ranking-content h3 {
+        margin: 0;
+    }
+    .friend-message h5 {
+        font-size: 14px;
+    }
+    .friend-message i {
+        margin-right: 5px;
+        color: #0074e1;
+        font-size: 18px;
+        vertical-align: -3px;
+    }
+    .friend-message span {
+        display: inline-block;
+        width: 70px;
+        margin-right: 10px;
+        font-size: 14px;
+    }
+    .invited-btn {
+        width: 95px;
+    }
+    @media(max-width:320px) {
+        .list-head {
+            padding: 10px;
+        }
+        .friend-message h5 {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .friend-message i {
+            margin-right: 0;
+            font-size: 16px;
+        }
+        .friend-message span {
+            width: 50px;
+            font-size: 12px;
+        }
+        .invited-btn {
+            width: 100px;
+        }
+    }
+}
+
+.team-qian-bg {
+    background-image: url('../images/team-qian.jpg') !important;
+    background-position: center top;
+}
+
+.team-yi-bg {
+    background-image: url('../images/team-moon.jpg') !important;
+}
+
+
+/* battle share style end */
+
+
+/* battle creat start */
+
+.community-create {
+    padding-top: 54px;
+    padding-right: 15px;
+    padding-left: 15px;
+    h3 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .middle-button {
+        padding: 10px 30px;
+    }
+    .brttleGroup-content {
+        padding-bottom: 0;
+    }
+    i.icon-coin {
+        font-size: 21px;
+    }
+}
+
+
+/* battle creat end */
+
+
+/* battle creat detail start */
+
+.create-details {
+    position: fixed;
+    top: 44px;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    .list-head {
+        padding: 40px 0;
+        background-image: url('../images/pao-bg.jpg');
+        background-position: center bottom;
+        background-size: cover;
+        color: #fff;
+    }
+    .list-head h2 {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        font-size: 24px;
+        text-shadow: 0 3px 6px #448ea9;
+    }
+    .list-head i {
+        margin-right: 10px;
+        font-size: 22px;
+        color: #d5ffff;
+    }
+    .list-head span {
+        font-size: 16px;
+        vertical-align: 4px;
+    }
+    ul.ranking-content .font-black {
+        width: 112px;
+        font-size: 16px;
+    }
+    ul.ranking-content .icon-area {
+        width: 35px;
+    }
+    ul.ranking-content input{
+        background: transparent !important;
+    }
+    .icon-area i {
+        font-size: 24px;
+        vertical-align: -3px;
+        color: #5d5d5d;
+    }
+    i.icon-date {
+        font-size: 22px !important;
+    }
+    .check-box a {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+        margin: 0 4px;
+        line-height: 45px;
+    }
+    .input-text {
+        border: none;
+        text-align: right;
+    }
+    .view-players {
+        font-size: 16px;
+        color: #0074e1;
+    }
+    .view-players i {
+        vertical-align: -2px;
+    }
+    a.choose-player-button {
+        display: inline-block;
+        width: 45px;
+        height: 30px;
+        text-align: right;
+        line-height: 33px;
+        font-size: 16px;
+        color: #0074e1;
+    }
+    input {
+        width: 100%;
+        padding: 5px;
+        border: none;
+        text-align: right;
+        font-size: 18px;
+        color: #0074e1;
+        outline: none;
+    }
+    @media(max-width: 325px) {
+        .check-box a {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            margin: 0 4px;
+            line-height: 40px;
+        }
+        ul.ranking-content .font-black {
+            width: 100px;
+            font-size: 16px;
+        }
+    }
+    .button-area{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+/* battle creat detail end */
+
+
+/* choose player popup start */
+
+.choose-player-popup {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 1113;
+    overflow: hidden;
+    .close-area {
+        display: table;
+        width: 100%;
+        height: 10%;
+        padding-right: 10%;
+        text-align: right;
+    }
+    .pop-content {
+        display: table;
+        height: 85%;
+        width: 90%;
+        margin: 0 auto;
+        border-radius: 5px;
+        background-color: white;
+    }
+    .tab-title {
+        display: table;
+        width: 100%;
+        padding: 0 5px 0 15px;
+        background-color: #eae7e7;
+        border-radius: 5px 5px 0 0;
+        text-align: center;
+    }
+    .tab-title .tdcell:first-child {
+        width: 40%;
+    }
+    .tab-title .tdcell:last-child {
+        width: 20%;
+    }
+    .tab-title .tdcell a {
+        display: inline-block;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        color: #8a8a8a;
+        font-size: 18px;
+    }
+    a.titleon {
+        color: #0074e1;
+        border-bottom: 3px solid #0074e1;
+    }
+    a.close-btn {
+        display: inline-block;
+        border: none;
+        width: 46px !important;
+        height: 46px !important;
+        padding: 13px 10px !important;
+        border: none;
+        background: url('../images/close_button.png') no-repeat;
+        background-size: cover;
+        background-origin: content-box;
+    }
+    ul.ranking-content {
+        box-shadow: none;
+        font-size: 14px;
+        height: 80%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    ul.ranking-content p {
+        margin-bottom: 0;
+        font-size: 16px;
+    }
+    .firend-name {
+        width: 50px !important;
+        font-size: 14px;
+    }
+    .male-icon {
+        width: 35px;
+        color: #a5a5a5;
+        font-size: 18px;
+    }
+    .male-icon i {
+        vertical-align: -3px;
+    }
+    .steps-coins i {
+        color: #0A9AFF !important;
+    }
+    .steps-coins span {
+        display: inline-block;
+        width: 50px;
+    }
+    .steps-coins label {
+        display: block;
+    }
+    i.icon-coin {
+        padding-left: 10px;
+    }
+    .invited-btn {
+        width: 45px;
+    }
+    a.invite-friend-btn {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        padding: 3px 0 0 0;
+        border-radius: 50%;
+        background-color: rgba(138, 138, 138, 0.7);
+        text-align: center;
+        font-size: 20px;
+        line-height: inherit;
+        color: #ffffff;
+    }
+    a.invite-friend-btn {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    a.invite-friend-btn.invited {
+        padding: 3px 0 0 0;
+        font-size: 20px;
+        background: #0074e1;
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    .error {
+        font-size: 12px;
+    }
+    @media(max-width: 320px) {
+        ul.ranking-content {
+            font-size: 14px;
+            height: 75%;
+        }
+        .steps-coins i {
+            font-size: 12px;
+        }
+        .steps-coins span {
+            width: 45px;
+            font-size: 12px;
+        }
+        i.icon-coin {
+            padding-left: 0;
+        }
+        .invited-btn {
+            width: 40px;
+        }
+        .male-icon {
+            width: 30px;
+        }
+    }
+    .button-area{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.player-show ul.ranking-content {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+/* choose player popup end */
+
+
+/* challenge admin start */
+
+.challenge-admin {
+    .list-head h2 {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        font-size: 24px;
+        text-shadow: 0 3px 6px #448ea9;
+    }
+    .brttleGroup-details {
+        padding: 0;
+        color: #ffffff;
+    }
+    .brttleGroup-details i {
+        color: #d5ffff;
+        font-size: 18px;
+        vertical-align: 0 !important;
+    }
+    .brttleGroup-details i.icon-coin {
+        font-size: 17px;
+    }
+    .brttleGroup-details li .font-icon {
+        width: 26px;
+    }
+    .brttleGroup-details li:last-child {
+        width: 100% !important;
+    }
+    ul.ranking-content li .btn-area {
+        width: 95px;
+    }
+    ul.ranking-content li i.icon-counter {
+        font-size: 14px;
+        vertical-align: -1px;
+        color: #FF5A00;
+    }
+    .friend-message i.icon-steps {
+        color: #0a9aff !important;
+    }
+    .friend-message i.icon-coin {
+        color: #0a9aff !important;
+    }
+    a.invite-friend-btn {
+        display: inline-block;
+        width: 56px;
+        height: 30px;
+        margin: 0;
+        line-height: 30px;
+        border-radius: 3px;
+        background: #0074e1;
+        text-align: center;
+        font-size: 14px;
+        color: #ffffff;
+    }
+    a.invite-friend-btn.is-friend {
+        margin-right: 36px;
+    }
+    a.invite-friend-btn:hover,
+    a.invite-friend-btn:focus {
+        background-color: #0069CC;
+        border: 1px solid #0061BC;
+    }
+    a.invite-friend-btn {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    a.invite-friend-btn.invited {
+        background-color: rgba(138, 138, 138, 0.7);
+        border: rgba(138, 138, 138, 0.7) !important;
+    }
+    a.check-button {
+        width: 31px;
+        height: 31px;
+        line-height: 32px;
+        font-size: 14px !important;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+    }
+    @media(max-width: 320px) {
+        a.invite-friend-btn {
+            width: 55px;
+        }
+    }
+}
+
+
+/* challenge admin end */
+
+
+/* challenge ranking start */
+
+.challenge-ranking {
+    .list-head h2 {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        font-size: 24px;
+        text-shadow: 0 3px 6px #448ea9;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    .brttleGroup-details {
+        padding: 0;
+        color: #ffffff;
+    }
+    .brttleGroup-details i {
+        color: #d5ffff;
+        font-size: 18px;
+        vertical-align: 0 !important;
+    }
+    .brttleGroup-details i.icon-coin {
+        font-size: 17px;
+    }
+    .brttleGroup-details li .font-icon {
+        width: 26px;
+    }
+    .brttleGroup-details li:last-child {
+        width: 100% !important;
+    }
+    a.invite-friend-btn {
+        display: inline-block;
+        width: 80px;
+        height: 30px;
+        margin: 2px 0;
+        line-height: 30px;
+        border-radius: 3px;
+        background: #0074e1;
+        text-align: center;
+        font-size: 14px;
+        color: #ffffff;
+    }
+    a.invite-friend-btn:hover,
+    a.invite-friend-btn:focus {
+        background-color: #0069CC;
+        border: 1px solid #0061BC;
+    }
+    a.invite-friend-btn {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    a.invite-friend-btn.invited {
+        background-color: rgba(138, 138, 138, 0.7);
+        border: rgba(138, 138, 138, 0.7) !important;
+    }
+    a.check-button {
+        width: 31px;
+        height: 31px;
+        line-height: 32px;
+        font-size: 14px !important;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+    }
+    @media(max-width: 320px) {
+        a.invite-friend-btn {
+            width: 70px;
+            margin-left: 5px;
+        }
+        .brttleGroup-details li:nth-child(3) {
+            width: 60% !important;
+        }
+        .brttleGroup-details li:nth-child(4) {
+            width: 40% !important;
+        }
+    }
+}
+
+.challengeRanking {
+    padding-top: 44px;
+    .brttleGroup-content {
+        padding: 10px 10px;
+        background: url('../images/team-pao.jpg') no-repeat top center;
+        background-size: cover;
+        color: #fff;
+        text-shadow: 0 2px 2px rgba(83, 83, 83, 0.7);
+    }
+    .brttleGroup-title {
+        width: 100%;
+        margin-top: 10px;
+        padding: 0 10px;
+    }
+    .brttleGroup-title span {
+        width: 50%;
+        display: inline-block;
+    }
+    .brttleGroup-title span:first-child {
+        font-size: 24px;
+        text-align: left;
+    }
+    .brttleGroup-title span:last-child {
+        font-size: 14px;
+        text-align: right;
+        color: #d5ffff;
+    }
+    ul.brttleGroup-details {
+        padding: 15px 0 0 0;
+        color: #fff;
+    }
+    ul.brttleGroup-details i {
+        font-size: 18px;
+        color: #d5ffff;
+    }
+    .share-btn {
+        color: #d5ffff;
+        font-size: 12px;
+        padding-top: 18px;
+    }
+    .share-btn i {
+        vertical-align: -1px;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    ul.ranking-content {
+        box-shadow: none;
+        padding: 0 15px;
+    }
+    ul.ranking-content li .name-leavel .name {
+        font-size: 14px;
+    }
+    ul.ranking-content li .rank-num {
+        font-size: 26px;
+    }
+    ul.ranking-content i {
+        font-size: 16px;
+        padding-right: 8px;
+    }
+    ul.ranking-content li .leavel-num {
+        font-size: 14px;
+    }
+}
+
+
+/* challenge admin end */
+
+
+/* challenge result start */
+
+.challenge-battle {
+    .my-battle {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        margin: 20px 0;
+        padding: 0 10px;
+        text-align: center;
+        font-size: 12px;
+    }
+    .my-battle.font-title {
+        font-size: 16px;
+    }
+    .share-btn {
+        padding-top: 10px !important;
+    }
+    .icon-image i {
+        font-size: 18px;
+        vertical-align: -1px;
+        margin-right: 7px;
+    }
+    .place {
+        padding: 0 3px;
+        font-size: 26px;
+        vertical-align: -4px;
+        line-height: 14px;
+    }
+    .my-battle i {
+        font-size: 20px;
+    }
+    .font-lightblue b {
+        font-size: 14px;
+    }
+    .circle-border {
+        display: inline-block;
+        width: 90px;
+        height: 90px;
+        padding-top: 12px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.4);
+        background: rgba(13, 125, 181, 0.2);
+        background-image: url('../images/circle-bg.png');
+        background-repeat: repeat;
+        background-size: 5% 5%;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    .ranking-content .name {
+        font-size: 14px;
+    }
+}
+
+
+/* challenge result end */
+
+
+/* ranking rule popup start */
+
+.modal-body .ranking-rule {
+    color: #5d5d5d;
+    padding: 15px 15px 0 15px;
+    p {
+        margin-bottom: 14px;
+    }
+    *{
+    	font-size: 14px;
+    }
+}
+
+
+/* ranking rule popup end */
+
+.qian-bg {
+    background-image: url('../images/qian-bg.jpg') !important;
+    background-position: center top;
+}
+
+.yi-bg {
+    background-image: url('../images/moon-bg.jpg') !important;
+}
+
+
+/* mailbox & battle create share style start */
+
+ul.battleGroup {
+    padding-bottom: 20px;
+    .battleGroup-li {
+        padding: 0;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #d6d6d6;
+        background-color: #fff;
+        box-shadow: 0px 3px 2px #e0e0e0;
+    }
+    .head-img {
+        position: relative;
+        width: 100%;
+        height: 72px;
+        box-shadow: 0px 3px 2px #e0e0e0;
+    }
+    .head-img img {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+    }
+    .head-img span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 24px;
+        color: #fff;
+        text-shadow: 1px 1px 4px rgba(200, 200, 200, 1);
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+    }
+}
+
+.brttleGroup-content {
+    padding-bottom: 20px;
+}
+
+.brttleGroup-content h4 {
+    width: 100%;
+    padding-top: 5px;
+    text-align: center;
+    color: #0d7db5;
+    font-weight: bold;
+}
+
+.brttleGroup-content h4 a {
+    float: right;
+    padding-right: 10px;
+    font-size: 14px;
+    font-weight: 100;
+    color: #0074e1;
+}
+
+.brttleGroup-content h4 a i {
+    font-size: 12px;
+}
+
+
+/* mailbox & battle create share style end */
+
+
+/* challenge top area share style start */
+
+ul.brttleGroup-details {
+    width: 100%;
+    padding: 15px 8px 0 8px;
+    color: #5d5d5d;
+    font-size: 14px;
+}
+
+ul.brttleGroup-details li {
+    display: table;
+    table-layout: fixed;
+    width: 50% !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background: none !important;
+    float: left;
+}
+
+ul.brttleGroup-details li .tdcell {
+    padding-top: 5px;
+    vertical-align: top;
+}
+
+ul.brttleGroup-details .font-icon {
+    padding-top: 0 !important;
+}
+
+ul.brttleGroup-details li:last-child {
+    padding-bottom: 15px !important;
+}
+
+ul.brttleGroup-details .font-icon {
+    width: 30px;
+    font-size: 22px;
+    color: #0A9AFF;
+}
+
+ul.brttleGroup-details .font-icon i {
+    vertical-align: -2px;
+}
+
+ul.brttleGroup-details .items-title {
+    width: 40px;
+    text-align: left;
+}
+
+ul.brttleGroup-details .items-title.four-font {
+    width: 68px;
+}
+
+ul.brttleGroup-details .items-title.six-font {
+    width: 92px;
+}
+
+
+/* challenge top area share style end */
+
+
+/* challenge iterms share style start */
+
+ul.ranking-content li {
+    padding: 15px 0 10px 0;
+    .ranking-places {
+        font-size: 14px;
+        width: 80px;
+    }
+    .rank-num {
+        color: #0d7db5;
+        padding: 0 3px;
+        font-size: 28px;
+        vertical-align: -2px;
+    }
+    .name-leavel .name {
+        display: inline-block;
+        width: 100px;
+        font-size: 14px;
+    }
+    .name i.icon-counter {
+        font-size: 14px;
+        vertical-align: -1px;
+        color: #FF5A00;
+    }
+    .leavel-num {
+        font-size: 16px;
+        color: #0d7db5;
+    }
+    .ranking-nums {
+        font-size: 14px;
+    }
+    .ranking-nums .steps {
+        padding-right: 5px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    @media(max-width: 320px) {
+        .ranking-places {
+            font-size: 14px;
+        }
+        .rank-num {
+            font-size: 24px;
+            vertical-align: -1px;
+        }
+        .name-leavel .name {
+            width: 90px;
+            font-size: 14px;
+        }
+        .name i.icon-counter {
+            font-size: 14px;
+        }
+        .leavel-num {
+            font-size: 16px;
+        }
+        .ranking-nums .steps {
+            font-size: 16px;
+            padding-right: 3px;
+            vertical-align: -1px;
+        }
+        .ranking-nums {
+            font-size: 14px;
+        }
+    }
+}
+
+
+/* challenge iterms share style end */

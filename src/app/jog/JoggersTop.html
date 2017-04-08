@@ -1,0 +1,293 @@
+<style>
+
+    .joggers-top {
+        padding-top: 44px;
+    }
+
+    ul.ranking-content {
+        padding: 0 15px;
+        box-shadow: none;
+    }
+
+    ul.ranking-content li {
+        font-size: 16px;
+        padding: 12px 0;
+    }
+    ul.ranking-content li:first-child {
+        border-top: 1px solid #d3d3d3;
+    }
+
+    .item-list-icon {
+        width: 28px;
+        vertical-align: top;
+        color: #56a0f0;
+    }
+    .item-list-icon.lower {
+        color: #8a8a8a;
+    }
+
+    .item-list-icon {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .item-score {
+        color: #929292;
+    }
+    .item-operation .button {
+        width: 22px;
+        height: 22px;
+        background: #087bfd;
+        color: #fff;
+        font-size: 0;
+        text-align: center;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .item-operation .button.added {
+        background: #cccccc;
+    }
+    .item-operation .button i {
+        font-size: 18px;
+        line-height: 18px;
+    }
+
+
+    .joggers-top .button-area {
+    	position: fixed;
+    	background-color: #fff;
+    	width: 100%;
+    	z-index: 10;
+        display: flex;
+        display: -webkit-flex;
+        border-bottom: 1px solid #d3d3d3
+    }
+    .joggers-top .button-area div {
+        flex-grow: 1;
+        -webkit-flex-grow: 1;
+    }
+    .joggers-top .button-area button {
+        font-size: 16px;
+        width: 80px;
+    }
+    .joggers-top .button-area .passive {
+        background: #0074e1 !important;
+        color: #fff !important;
+        border: 1px solid #0061bc !important;
+    }
+
+    .middle-button {
+        border-radius: 15px;
+        background: transparent !important;
+        color: #929292 !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .main-info {
+        background: #e5e5e5;
+        margin: 10px;
+        border-radius: 8px;
+        padding: 0 10px;
+    }
+    .button-group {
+        width: 100%;
+        height: 26px;
+        display: table;
+        table-layout: fixed;
+        padding: 5px 0px;
+        border-bottom: 1px solid #d3d3d3;
+    }
+    .button-group li{
+    	display: table-cell;
+        flex-grow: 1;
+        -webkit-flex-grow: 1;
+        line-height: 7px;
+        text-align: center;
+        border-right: 1px solid #cccccc;
+        height: 40px;
+    }
+    .button-group li:last-child{
+        border-right: none;
+    }
+    .button-group li .button {
+        position: relative;
+    }
+    .button-group li .button > div {
+        line-height: 20px;
+    }
+    .button-group li .button > div img{
+        width: 23px;
+        vertical-align: top;
+    }
+    .button-group li .button > div p{
+        opacity: 0.7;
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 2px;
+        margin-bottom: 2px;
+        text-align: left;
+        font-size: 20px;
+    }
+    .button-group li .button > p{
+        line-height: 1;
+        color: #929292;
+        font-size: 12px;
+    }
+
+    .list-title {
+        display: flex;
+        display: -webkit-flex;
+        padding: 6px 0;
+    }
+    .list-title .item {
+        flex-grow: 1;
+        -webkit-flex-grow: 1;
+        font-size: 12px;
+        width: 50%;
+    }
+    .list-title .item:first-child{
+        text-align: left;
+    }
+    .list-title .item:last-child{
+        text-align: right;
+    }
+    .list-title .item img {
+        width: 22px;
+    }
+    .list-title .item .name {
+        margin-left: 5px;
+    }
+    .list-title .item .value {
+        /*color: #929292;*/
+    }
+    ul.ranking-content .item-name{
+    	line-height: 1;
+    	padding-left: 5px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+    	margin-bottom: 0px;
+    }
+    ul.ranking-content .item-score{
+    	margin-bottom: 0px;
+    	padding-left: 5px;
+    }
+    ul.ranking-content .item-operation{
+    	width: 30px;
+    }
+    .bottom-menu{
+    	position: fixed;
+    	bottom: 0px;
+    	left: 0px;
+    	right: 0px;
+    	z-index: 100;
+    	background-color: #fff;
+    	border-top: 1px solid #dedede;
+    	line-height: 38px;
+    	padding: 0px 10px;
+    }
+    .bottom-menu.disabled{
+    	color: #aaa;
+    	text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
+    }
+	.bottom-menu .icon-arrow{
+		float: right;
+		margin: 12px 0px;
+	}
+	.dropload-up{
+		top: 10px;
+	}
+    .topNo{
+        color: #56a0f0;
+    }
+    .joggers-top-list{
+    	padding-top: 73px;
+    }
+    .joggers-top-list.setMarginbottom{
+    	margin-bottom: 39px;
+    }
+</style>
+<div class="joggers-top">
+    <div ng-if="rankType == 0 || rankType == 1 || rankType == 2" class="button-area">
+        <div>
+            <button class="middle-button" ng-class="{'passive':rankType==0}" ng-click="topClick(0)">今日</button>
+        </div>
+        <div>
+            <button class="middle-button" ng-class="{'passive':rankType==1}" ng-click="topClick(1)">本周</button>
+        </div>
+        <div>
+            <button class="middle-button" ng-class="{'passive':rankType==2}" ng-click="topClick(2)">本月</button>
+        </div>
+    </div>
+    <div ng-if="rankType == 3 || rankType == 4"class="button-area">
+        <div>
+            <button class="middle-button" ng-class="{'passive':rankType==3}" ng-click="topClick(3)">上周</button>
+        </div>
+        <div>
+            <button class="middle-button" ng-class="{'passive':rankType==4}" ng-click="topClick(4)">上月</button>
+        </div>
+    </div>
+    <div class="joggers-top-list" ng-class="(rankType == 1 || rankType == 2) ? 'setMarginbottom' : ''">
+	    <div class="main-info">
+	        <ul class="button-group">
+	            <li>
+	                <div class="button">
+	                    <div>
+	                        <p>{{rankData.myRank}}</p>
+	                    </div>
+	                    <p>排名</p>
+	                </div>
+	            </li>
+	            <li>
+	                <div class="button">
+	                    <div>
+	                        <p>{{rankData.mySteps}}</p>
+	                    </div>
+	                    <p>步数</p>
+	                </div>
+	            </li>
+	            <li>
+	                <div class="button">
+	                    <div>
+	                        <p><span>{{sumCount}}</span></p>
+	                    </div>
+	                    <p>里程({{sumUnit}})</p>
+	                </div>
+	            </li>
+	        </ul>
+	        <div class="list-title">
+	            <div class="item">
+	            	<span ng-if="rankType==3||rankType==4">
+	            		<span class="name">记录时间：</span><span class="value">{{rankData.timePeriod}}</span>
+	            	</span>
+	            </div>
+	            <div class="item">
+	                <span class="name">累计：</span><span class="value">{{rankData.groupSum | formatSum}}</span>
+	            </div>
+	        </div>
+	    </div>
+	    <ul class="ranking-content view-code-content">
+	        <li ng-repeat="item in rankData.list" ng-click="selectClick()">
+	            <div class="tdcell item-list-icon" ng-class="{lower: $index>2}">
+	                <span ng-bind="$index+1"></span>
+	            </div>
+	            <div class="tdcell">
+	            	<p class="item-name">{{item.userName}}</p>
+	            </div>
+	            <div class="tdcell">
+	            	<p class="item-score" ng-class="$index<3?'topNo':''">{{item.userSum | formatSum}}</p>
+	            </div>
+	            <div class="tdcell text-right item-operation">
+	                <div class="button" ng-if="item.isFriend!=2" ng-class="{added: item.isFriend>0}" ng-click="addFriendClick(item)">
+	                    <i>+</i>
+	                </div>
+	            </div>
+	        </li>
+	    </ul>
+	    <div ng-if="rankType == 1 || rankType == 2" class="bottom-menu" ng-class="(rankType==1&&rankData.existWeekRank)||(rankType==2&&rankData.existMonthRank) ? '' : 'disabled'" >
+	    	<div ng-if="rankType == 1" ng-click="topClick(3);"><i class="icon-arrow"></i>上周排名</div>
+	    	<div ng-if="rankType == 2" ng-click="topClick(4);"><i class="icon-arrow"></i>上月排名</div>
+	    </div>
+    </div>
+</div>
+

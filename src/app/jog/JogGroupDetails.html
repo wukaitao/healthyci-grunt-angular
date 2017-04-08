@@ -1,0 +1,281 @@
+<style>
+
+    .jog-group-details {
+        padding-top: 44px;
+    }
+
+    .details-box {
+        color: #929292;
+        font-size: 12px;
+        position: relative;
+    }
+    .details-box img {
+        width: 100%;
+    }
+    .details-box .panel {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        color: #fff;
+    }
+
+    .details-box .panel .button-group {
+    	display: table;
+    	table-layout: fixed;
+        width: 100%;
+        height: 26px;
+        display: flex;
+        display: -webkit-flex;
+        position: absolute;
+        bottom: 26px;
+        padding: 0 10px;
+    }
+    .details-box .panel .button-group li{
+    	display: table-cell;
+        flex-grow: 1;
+        -webkit-flex-grow: 1;
+        line-height: 7px;
+        text-align: center;
+        border-right: 1px solid rgba(204,204,204,0.2);
+    }
+    .details-box .panel .button-group li:last-child{
+        border-right: none;
+    }
+    .details-box .panel .button-group li .button > img{
+        width: 23px;
+        vertical-align: top;
+    }
+    .details-box .panel .button-group li .button > div{
+        opacity: 0.7;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 8px;
+        text-align: left;
+    }
+
+    .details-box .panel .location-button {
+        font-size: 12px;
+        border: 1px solid rgba(156,190,218,0.7);
+        border-radius: 8px;
+        /*width: 49px;*/
+        background: url("images/jog/icon-jog-location.png") no-repeat 4px 2px;
+        background-size: 11px;
+        text-align: right;
+        padding: 0px 5px;
+        display: inline-block;
+        margin-top: 8px;
+    }
+    .details-box .panel .share-button {
+        font-size: 12px;
+        width: 49px;
+        background: url("images/jog/icon-jog-share.png") no-repeat 4px 2px;
+        background-size: 12px;
+        text-align: right;
+        padding: 0px 5px;
+        position: absolute;
+        right: 10px;
+        top: 18px;
+        opacity: 0.9;
+    }
+
+    .operation {
+        padding: 10px 0;
+    }
+
+    .operation .long-button.gray {
+        background: #cccccc;
+        border: none;
+        color: #eeeeee;
+    }
+
+    ul.ranking-content {
+        padding: 0px 15px;
+        box-shadow: none;
+    }
+
+    ul.ranking-content li {
+        padding: 12px 0 10px;
+        font-size: 16px;
+    }
+
+    .item-list-icon {
+        width: 35px;
+        color: #8a8a8a;
+    }
+
+    .item-list-icon img {
+        width: 22px;
+    }
+
+    .more-link-arrow {
+        width: 30px;
+    }
+
+    .more-link-arrow i {
+        font-size: 14px;
+        vertical-align: 1px;
+        color: #a6a6a6;
+    }
+
+    .ranking-content li .input-text {
+        width: 100%;
+        font-size: 12px;
+        border: none;
+        text-align: right;
+    }
+
+    .button-area {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .healthyAssess-popup input {
+        font-size: 14px;
+        width: 100%;
+        border: 1px solid #eaeaea;
+        height: 30px;
+    }
+    .healthyAssess-popup .button-area {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    /*分享对话框样式*/
+    #shareLinkPopup .modal-header {
+        display: none;
+    }
+    #shareLinkPopup .modal-body {
+        border-radius: 6px;
+    }
+
+    .healthyAssess-popup.share-dialog {
+        background: #e7e7e7;
+    }
+    .healthyAssess-popup.share-dialog .link {
+        display: flex;
+        display: -webkit-flex;
+        margin: 10px;
+    }
+    .healthyAssess-popup.share-dialog input{
+        border-radius: 5px;
+        height: 40px;
+        padding: 0 5px;
+    }
+    .healthyAssess-popup.share-dialog .link img {
+        width: 60px;
+        height: 60px;
+        margin-right: 5px;
+    }
+    .healthyAssess-popup.share-dialog .link .title {
+        text-align: left;
+        font-size: 14px;
+    }
+    .healthyAssess-popup.share-dialog .link .info {
+        text-align: left;
+        color: #929292;
+        font-size: 12px;
+    }
+    .healthyAssess-popup.share-dialog .button-area {
+
+    }
+
+</style>
+<div class="jog-group-details">
+    <div class="details-box">
+        <img src="images/jog/bg-jog-details.png">
+        <div class="panel">
+            <div style="padding:20px 15px;width: 207px;opacity: 0.9;word-wrap: break-word;">
+                <p style="font-size: 16px; margin: -7px 0 3px;" ng-bind="content.groupName"></p>
+                <p style="font-size: 12px; margin-bottom: 0;" ng-bind="content.groupDesc"></p>
+                <div ng-if="content.city">
+                    <div class="location-button">
+                        <p ng-bind="content.city" style="height: 7px;margin-left: 10px;"></p>
+                    </div>
+                </div>
+            </div>
+        <div class="share-button" ng-if="status==0&&isMobile" ng-click="shareClick()">
+                分享
+            </div>
+            <ul class="button-group" ng-if="groupId>0">
+                <li>
+                    <div class="button">
+                        <img src="images/jog/icon-jog-id.png">
+                        <div>
+                            <p>跑团ID</p>
+                            <p>{{content.groupId}}</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="button">
+                        <img src="images/jog/icon-jog-sum.png">
+                        <div>
+                            <p>人数</p>
+                            <p>{{content.groupMemCount}}人</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="button">
+                        <img src="images/jog/icon-jog-trip.png">
+                        <div>
+                            <p>总里程</p>
+                            <p><span>{{content.groupSum | formatSum}}</span></p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="operation" ng-if="status==0">
+        <ul class="ranking-content view-code-content">
+            <li ng-click="topClick()">
+                <div class="tdcell item-list-icon">
+                    <img src="images/jog/icon-jog-top.png">
+                </div>
+                <div class="tdcell">排行榜</div>
+                <div class="tdcell text-right more-link-arrow"><i class="icon-arrow"></i></div>
+            </li>
+            <li ng-click="membersClick()">
+                <div class="tdcell item-list-icon">
+                    <img src="images/jog/icon-jog-members.png">
+                </div>
+                <div class="tdcell">跑团成员</div>
+                <div class="tdcell text-right more-link-arrow"><i class="icon-arrow"></i></div>
+            </li>
+        </ul>
+
+        <div class="button-area">
+            <button class="long-button" ng-click="quitClick()">退出跑团</button>
+        </div>
+    </div>
+
+    <div class="operation" ng-if="status==2">
+        <div class="button-area">
+            <button class="long-button" ng-click="applyClick()">申请加入</button>
+        </div>
+        <p style="color: #b3b3b3;text-align: center;font-size: 12px;">每人限加一个跑团</p>
+    </div>
+
+    <div class="operation" ng-if="status==1">
+        <div class="button-area">
+            <button class="long-button" ng-click="cancelApplyClick()">撤销申请</button>
+        </div>
+        <p style="color: #b3b3b3;text-align: center;font-size: 12px;">您已经申请加入此跑团，待团长审核</p>
+    </div>
+
+    <div class="operation" ng-if="status==10 || status==20">
+        <div class="button-area">
+            <button class="long-button gray">申请加入</button>
+        </div>
+        <p style="color: #b3b3b3;text-align: center;font-size: 12px;">若想加入此跑团，请先退出当前跑团或撤销申请</p>
+    </div>
+
+</div>
+<div class="submit-success text-center hide">
+   <span class="success-icon"><i class="icon-right"></i></span>
+   <span>已发送邀请</span>
+</div>

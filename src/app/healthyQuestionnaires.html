@@ -1,0 +1,197 @@
+<div class="healthy-questionnaires">
+	<div class="healthy-container">
+		<div class="title">
+			<h1>{{page.title}}</h1>
+		</div>
+		<div ng-if="page.tips" class="tips">{{page.tips}}</div>
+		<div ng-repeat="one in page.questionList" ng-switch on="one.type" ng-class="one.type == 'fill' ? 'list list-fill' : 'list'">
+			<div class="t">{{$index+1}}. {{one.title}}</div>
+			<!-- fill -->
+			<div ng-switch-when="fill" class="c">
+				<input ng-model="one.value" ng-blur="checkBlur(one);" type="{{one.rule.type}}" name="{{one.name}}" placeholder="{{one.rule.tips}}" maxlength="{{one.rule.maxlength}}" autocomplete="off" class="ipt-fill"/>
+			</div>
+			<!-- text -->
+			<div ng-switch-when="text" class="c">
+				<input ng-model="one.value" type="text" name="{{one.name}}" class="ipt-text"/>
+			</div>
+			<!-- radio -->
+			<div ng-switch-when="radio" class="c radio-button" ng-class="one.name == 'income' ? 'pre33' : ''">
+				<a ng-repeat="subOne in one.list" ng-click="chooseRadio(one,subOne);" ng-class="'ipt-item'"><i class="icon"><i class="icon-inner" ng-if="subOne.isChecked"></i></i>{{subOne.content}}</a>
+			</div>
+			<!-- checkbox -->
+			<div ng-switch-when="checkbox" class="c checkbox-button">
+				<a ng-repeat="subOne in one.list" ng-click="chooseCheckbox(one,subOne);" ng-class="'ipt-item'"><i class="icon"><i class="icon-inner" ng-if="subOne.isChecked"></i></i>{{subOne.content}}</a>
+			</div>
+		</div>
+	</div>
+	<div class="healthy-background-bottm">
+		<div class="button-area">
+			<a ng-click="submitForm();" ng-class="page.isComplete ? 'submit-button' : 'submit-button disabled'">提交</a>
+		</div>
+		<img class="healthy-background-bottm-t" src="images/questionnaires/background-bottom-1.png"/>
+		<img class="healthy-background-bottm-b" src="images/questionnaires/background-bottom-2.png"/>
+	</div>
+</div>
+<style type="text/css">
+	.healthy-questionnaires{
+		padding: 45px 0px 4vw;
+		color: #4c4c4c;
+		background-color: #c2f4fd;;
+	}
+	.healthy-container{
+		margin: 4vw 4vw -35vw;
+		position: relative;
+		z-index: 11;
+	}
+	.healthy-container .list{
+		background-color: #fff;
+		padding: 0px 7vw;
+	}
+	.healthy-container .list:last-child{
+		padding-bottom: 10vw;
+	}
+	.healthy-questionnaires .title{
+		background-image: url('images/questionnaires/background-top.png');
+		background-position: -5px 0;
+		background-repeat: no-repeat;
+	}
+	.healthy-questionnaires .title h1{
+		line-height: 5.25vw;
+		font-size: 4.8vw;
+		text-align: center;
+		color: #0cabc7;
+		border-bottom: 2px #ccc dotted;
+		margin: 0px 3vw;
+		padding: 10vw 0 4vw;
+	}
+	.healthy-questionnaires .tips{
+		line-height: 22px;
+		padding-bottom: 20px;
+		border-bottom: 4px solid #3c9ccf;
+	}
+	.healthy-questionnaires .t{
+		padding-top: 4vw;
+		padding-bottom: 2vw;
+		line-height: 6vw;
+		font-size: 4vw;
+		color: #0cabc7;
+	}
+	.healthy-questionnaires .c{
+		line-height: 6.15vw;
+		font-size: 3.46vw;
+		padding: 0px 1vw;
+	}
+	.healthy-questionnaires .ipt-item{
+		position: relative;
+		display: inline-block;
+		padding-left: 1vw;
+		color: #3e3a3d;
+		width: 50%;
+	}
+	.healthy-questionnaires .pre33 .ipt-item{
+		width: 33.3%;
+	}
+	.healthy-questionnaires .ipt-text{
+		width: 250px;
+		height: 32px;
+		line-height: 32px;
+		padding: 0px 5px;
+		border: 1px solid #0074e1;
+		vertical-align: middle;
+		color: #337ab7;
+	}
+	.healthy-questionnaires .radio-button .icon,
+	.healthy-questionnaires .checkbox-button .icon{
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		border: 1px solid #bbb;
+		vertical-align: middle;
+		margin-right: 2vw;
+		position: relative;
+	}
+	.healthy-questionnaires .radio-button .icon-inner,
+	.healthy-questionnaires .checkbox-button .icon-inner{
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: #0cabc7;
+		position: absolute;
+		top: 1px;
+		left: 1px;
+	}
+	.healthy-questionnaires .checkbox-button .icon,
+	.healthy-questionnaires .checkbox-button .icon-inner{
+		border-radius: 0px;
+	}
+	.questionnaires-popup{
+		width: 100%;
+		padding: 15px 15px 15px 15px;
+		color: #5d5d5d;
+		font-size: 16px;
+	}
+	.questionnaires-popup .button-area{
+		margin-top: 5%;
+		padding-top: 15px;
+		padding-bottom: 0;
+	}
+	.healthy-questionnaires .button-area{
+		position: absolute;
+	    bottom: 4.8vw;
+	    z-index: 20;
+	    left: 0;
+	    right: 0;
+	    padding-bottom: 0px;
+	}
+	.healthy-questionnaires .submit-button{
+		display: inline-block;
+		width: 26.68vw;
+		height: 6.68vw;
+		line-height: 6.68vw;
+		text-align: center;
+		border-radius: 3.34vw;
+		background: #f86d6d;
+		color: #fff;
+		font-size: 4vw;
+	}
+	.healthy-questionnaires .submit-button.disabled{
+		background-color: #dedede;
+		color: #3e3a3d;
+	}
+	.healthy-background-bottm{
+		position: relative;
+		margin: 0px 1.6vw;
+	}
+	.healthy-background-bottm-t{
+		width: 100%;
+		position: relative;
+		margin-bottom: -5vw;
+		z-index: 10;
+	}
+	.healthy-background-bottm-b{
+		width: 100%;
+		position: relative;
+		z-index: 15;
+	}
+	.healthy-container .list-fill{
+		padding-top: 4vw;
+	}
+	.healthy-container .list-fill .t{
+		display: inline;
+	}
+	.healthy-container .list-fill .c{
+		display: inline;
+	}
+	.healthy-container .list-fill .ipt-fill{
+		display: inline;
+		width: 120px;
+		padding: 0px 5px;
+		border: 1px solid #666;
+		border-radius: 0px;
+		border-width: 0px 0px 1px;
+		vertical-align: initial;
+		color: #3e3a3d;
+	}
+</style>

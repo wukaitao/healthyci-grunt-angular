@@ -1,0 +1,220 @@
+@import "../../../styles/lib.less";
+
+.testRenameImages {
+  background-image: url("../../images/util/loading.gif");
+}
+//popUp
+@label-width: 38%;
+@input-height:10%;
+@blue:#6799cc;
+@light-blue:#b7cfe7;
+.popUp {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+//}
+.popUp-content {
+  width: 90%;
+  //height: 75%;
+  .vertical-middle;
+  .horizontal-middle;
+}
+
+.popUp-bgImg-box{
+  .img-box(115%);
+}
+.popUp-caseImg-box{
+  .img-box(125%);
+}
+.popUp-successImg-box{
+  .img-box(79%);
+}
+.popUp-bookingImg-box{
+  .img-box(117%);
+}
+.close-2{
+  position: absolute;
+  top: 2%;
+  right: 3%;
+  width: 8%;
+}
+
+
+.popUp-btn-wrap{
+  position: absolute;
+  bottom: 5%;
+  left:0;
+  width: 100%;
+}
+.confirm-btn-wrap{
+  position:absolute;
+  bottom: 30%;
+  left:0;
+  width: 100%;
+}
+
+.popUp-btn {
+  display: block;
+  width: 70%;
+  padding:10px 0;
+  .horizontal-middle;
+  background-color: @blue;
+  color: white;
+  font-size: 16px;
+
+}
+.confirm-btn{
+  width:50%;
+}
+.popUp-form-wrap {
+  position: absolute;
+  left: 0;
+  //bottom: 47px;
+  top: 32%;
+
+  //bottom: 15%;
+  width: 100%;
+  height:55%;
+}
+.popUp-form{
+  width:68%;
+  .horizontal-middle;
+  height: 100%;
+}
+.input-group {
+  .clearfix();
+  padding-bottom:10px;
+  height: @input-height;
+}
+.input-group-last{
+  padding-bottom: 26px;
+}
+
+.input-label {
+  .left;
+  width: @label-width;
+  //text-align: right;
+  box-sizing: border-box;
+  color:@blue;
+
+  height: 100%;
+
+  line-height: 1.5;
+  //font-size: 0.8em;
+}
+
+.input-text {
+  .left;
+  width: 100-@label-width;
+  height: 100%;
+}
+input{
+  display: block;
+  height: 100%;
+  line-height:1.5;
+  width: 100%;
+  outline: none;
+  padding-left:6px;
+  box-sizing: border-box;
+  border: 1px solid @light-blue;
+  .border-radius(3px);
+  background-color: #eaf3fa;
+}
+
+//main
+.insurance {
+  .clearfix();
+  width: 100%;
+  border-top:1px dashed @blue;
+  border-bottom:1px dashed @blue;
+}
+.insurance-item{
+  .left;
+  width: 50%;
+  background-color: #eaf3fa;
+  color: @blue;
+  padding:14px 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+}
+.insurance-item:first-child{
+  border-right:1px dashed @blue;
+}
+.book-img-box{
+  .img-box(30%);
+}
+.book-btn-wrap{
+  position: absolute;
+  top:15px;
+  left:0;
+  width: 100%;
+  button{
+    display: block;
+    width: 50%;
+    .horizontal-middle;
+    padding: 8px 0;
+    background-color: @blue;
+    color: white;
+    font-size: 18px;
+  }
+}
+//main
+.sex-wrap{
+  border:1px solid @light-blue;
+  .border-radius(3px);
+  box-sizing: border-box;
+}
+.sex {
+  .left;
+  width: 50%;
+  height: 100%;
+  line-height: 1.5;
+  box-sizing: border-box;
+  color:@blue;
+  text-align: center;
+}
+.sexSelected{
+  background-color: @blue;
+  color:white;
+}
+
+select {
+  box-sizing: border-box;
+  /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  border: 1px solid @light-blue;
+  .border-radius(3px);
+
+  /*很关键：将默认的select选择框样式清除*/
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  /*在选择框的最右侧中间显示小箭头图片*/
+  background: url("../../images/index/12.png") no-repeat scroll right center white;
+  //background-size:20px auto;
+  background-size:12% auto;
+  /*background-color: white;*/
+
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  //padding-right: 24px;
+  padding-right: 12%;
+  height: 100%;
+  line-height: 1.5;
+  width: 100%;
+  outline: none;
+  background-color: #eaf3fa;
+  text-align: center;
+
+  option{
+    text-align: center;
+  }
+
+
+}

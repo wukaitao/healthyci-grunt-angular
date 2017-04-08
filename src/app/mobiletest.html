@@ -1,0 +1,587 @@
+<HTML>
+
+<HEAD>
+<meta charset="utf-8" />
+<meta http-equiv="Cache-Control"
+	content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
+<TITLE>Step Counter Demo 2016-07-12</TITLE>
+</HEAD>
+<style>
+button {
+	width: 300px;
+	height: 50px;
+}
+
+input[type="text"] {
+	display: block;
+	margin: 0;
+	width: 100%;
+	font-family: sans-serif;
+	font-size: 18px;
+	appearance: none;
+	box-shadow: none;
+	border-radius: none;
+	padding: 10px;
+	border: none;
+	border-bottom: solid 2px #c9c9c9;
+	transition: border 0.3s;
+}
+
+input[type="text"]:focus, input[type="text"].focus {
+	outline: none;
+	border-bottom: solid 2px #969696;
+}
+</style>
+<script>
+//判断访问终端
+var browser = {
+    versions: function() {
+        var u = navigator.userAgent,
+            app = navigator.appVersion;
+        return {
+            trident: u.indexOf('Trident') > -1, //IE内核
+            presto: u.indexOf('Presto') > -1, //opera内核
+            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+            iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+            iPad: u.indexOf('iPad') > -1, //是否iPad
+            webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+        };
+    }(),
+    language: (navigator.browserLanguage || navigator.language).toLowerCase()
+}
+</script>
+
+<BODY>
+	<br />
+	<br />
+	<div align="center">
+		Steps: <label id="step_value">0</label>
+	</div>
+	<br />
+	<br />
+	<button onclick="isPedometerSupport()" class="ios">Is
+		Pedometer support</button>
+	<br class="ios" />
+	<br class="ios" />
+	<button onclick="isPedometerAvailable()" class="ios">Is
+		Pedometer Available</button>
+	<br class="ios" />
+	<br class="ios" />
+	<button onclick="syncData()" class="ios">Sync Data</button>
+	<br class="ios" />
+	<br class="ios" />
+	<button onclick="setStepCounterSettingOn(true)" class="aos">Set
+		Step Counter On</button>
+	<br class="aos" />
+	<br class="aos" />
+	<button onclick="setStepCounterSettingOn(false)" class="aos">Set
+		Step Counter Off</button>
+	<br class="aos" />
+	<br class="aos" />
+	<button onclick="isStepCounterSettingOn()" class="aos">Is Step
+		Counter On</button>
+	<br class="aos" />
+	<br class="aos" />
+	<button onclick="startStepCounter()">Start Step Counter</button>
+	<br />
+	<br />
+	<button onclick="stopStepCounter()">Stop Step Counter</button>
+	<br />
+	<br />
+	<button onclick="regStepCountReceiver()" class="aos">Register
+		Step Count Receiver</button>
+	<br class="aos" />
+	<br class="aos" />
+	<button onclick="unregStepCountReceiver()" class="aos">Unregister
+		Step Count Receiver</button>
+	<br class="aos" />
+	<br class="aos" />
+	<button onclick="getTodayStepData()">getTodayStepData()</button>
+	<br />
+	<br />
+	<button onclick="getDaysData()">getDaysData()</button>
+	<br />
+	<br />
+	<button onclick="isServiceRunning()" class="aos">isServiceRunning</button>
+	<br class="aos" />
+	<br class="aos" />
+	<button onclick="resetDB()">resetDB</button>
+	<br />
+	<br />
+	<hr>
+	<h2>CMBHMS WebApp</h2>
+	<hr>
+	Build Ver.:
+	<span id="versionId">--</span>
+	<br /> Build Date:
+	<span id="dateId">--</span>
+	<hr>
+	CMB App User Id:
+	<span id="userId">--</span>
+	<input type="text" id="txtCmbUserId">
+	<button onclick="genCmbUserId()">生成</button>
+	<br />
+	<br />
+
+	<a href="https://hms-uat.test-cignacmb.com/hms-cmb/mobiletest.html">
+		<button>UAT Debug Page</button>
+	</a>
+	<br />
+	<br />
+
+	<a href="">
+		<button onclick="gotoLogin()">CMB Login</button>
+	</a>
+	<br />
+	<br />
+
+	<a href="https://hms-sit.test-cignacmb.com/sit-hms-cmb/app.html" id="applink">
+		<button>SIT WebApp</button>
+	</a>
+	<br />
+	<br />
+
+	<a href="https://hms-uat.test-cignacmb.com/hms-cmb/app.html" id="applink2">
+		<button>UAT WebApp</button>
+	</a>
+	<br />
+	<br />
+
+	<a href="https://hms-sit.test-cignacmb.com/sit-hms-cmb2/app.html" id="applink3">
+		<button>SIT 跑团</button>
+	</a>
+	<br />
+	<br />
+	
+	<a href="http://hms-uat.test-cignacmb.com/hms-act/female_bx/index.html"
+		id="applink2">
+		<button>女性险[理财>保险]</button>
+	</a>
+	<br />
+	<br />
+	
+	<a href="https://hmscmb.cignacmb.com/hms-cmb-act/female_bx/index.html"
+		id="applink2">
+		<button>女性险[理财>保险PRD]</button>
+	</a>
+	<br />
+	<br />
+
+	<a href="http://hms-uat.test-cignacmb.com/hms-cmb-act/travel_core/index.html"
+		id="applink2">
+		<button>填坑秘籍[核心]</button>
+	</a>
+	<br />
+	<br />
+
+	<a href="http://hms-uat.test-cignacmb.com/hms-cmb-act/accident_fm/index.html"
+		id="applink2">
+		<button>5月意外险[核心]</button>
+	</a>
+	<br />
+	<br />
+
+	<a href="http://hms-uat.test-cignacmb.com/hms-act/gohomex_core/8.html" id="applink2">
+		<button>回家过年[核心]</button>
+	</a>
+	<br />
+	<br />
+
+	<a href="http://hms-uat.test-cignacmb.com/hms-act/female_core/index.html"
+		id="applink2">
+		<button>女性险[核心]</button>
+	</a>
+	<br />
+	<br /> 
+	
+	<a href="http://hms-uat.test-cignacmb.com/hms-cmb-act/accident_core/index.html"
+		id="applink2">
+		<button>E诺综合意外行路宝[核心]</button>
+	</a>
+	<br />
+	<br />
+
+
+	<a href="http://hms-uat.test-cignacmb.com/hms-act/gohomex/index.html" id="applink2">
+		<button>过年回家</button>
+	</a>
+	<br />
+	<br />
+
+	<a href="http://hms-uat.test-cignacmb.com/hms-act/female/index.html" id="applink2">
+		<button>女性险</button>
+	</a>
+	<br />
+	<br />
+
+	<a href="http://hms-uat.test-cignacmb.com/hms-cmb-act/travel/index.html"
+		id="applink2">
+		<button>填坑秘籍</button>
+	</a>
+	<br />
+	<br />
+
+	<a href="http://hms-uat.test-cignacmb.com/hms-cmb-act/accident/index.html"
+		id="applink2">
+		<button>意外险</button>
+	</a>
+	<br />
+	<br />
+  <a href="http://hms-uat.test-cignacmb.com/hms-cmb-act/hmc_lljt_web/index.html"
+		id="applink2">
+		<button>陆路公共交通</button>
+	</a>
+  <br />
+	<br />
+
+	<button onclick="clearWebAppCache()">Clear LocalStorage</button>
+	<br />
+	<br />
+	<button onclick="setDebugger()">Allow Debug</button>
+	<br />
+	<br />
+	<br />
+	<br />
+	<hr>
+	<h2>CP Test Env.</h2>
+	<hr>
+	<br /> Mobile User Agent:
+	<span id="useragentId">--</span>
+	<br />
+	<a href="http://172.168.11.244:9000/app.html" id="applink_172">
+		<button>Goto Test WebApp</button>
+	</a>
+	<br />
+	<br />
+	<input type="text" id="idUrl" value="http://172.168.11.:9000/app.html">
+	<button onclick="goto()">Go</button>
+
+</BODY>
+<script type="text/javascript">
+
+function gotoLogin() {
+    window.location  = "tplogin://hms-sit.test-cignacmb.com/hms-cmb/?auth=b7d80f7d15d24398e8ac451bf077c394";
+}
+
+function randomString() {
+    var rs = Math.random().toString().slice(2,11);
+    return rs;
+}
+
+function genCmbUserId() {
+    var txtCmbUserId = document.getElementById("txtCmbUserId");
+    if (txtCmbUserId.value=="") {
+        txtCmbUserId.value = randomString();
+    }
+
+    addCmbUserToAppLink();    
+}
+
+localStorage.setItem("debugg", 0);
+function dAlert(msg){
+    var isDebugger = localStorage.getItem("debugg");
+    var isDebug = !isDebugger ? 0 : isDebugger-0;
+    if(isDebug)
+    {
+        alert(msg)
+    }
+}
+function setDebugger() {
+    var isDebugger = localStorage.getItem("debugg");
+    var isDebug = !isDebugger ? 0 : isDebugger - 0
+    if (isDebug) {
+        dAlert('关闭alert');
+        localStorage.setItem("debugg", 0);
+    } else {
+        localStorage.setItem("debugg", 1);
+        dAlert('打开alert');
+    }
+
+}
+
+function goto() {
+    var url = document.getElementById("idUrl").value;
+    window.location.href = url;
+}
+
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null)
+    {
+        return unescape(r[2]);
+    }
+    return null;
+}
+function loadJSON(path, success, error) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                if (success)
+                    success(JSON.parse(xhr.responseText));
+            } else {
+                if (error)
+                    error(xhr);
+            }
+        }
+    };
+    xhr.open("GET", path, true);
+    xhr.send();
+};
+
+loadJSON('version/version.json',
+    function(data) {
+        document.getElementById("versionId").innerHTML = data.version;
+
+        document.getElementById("dateId").innerHTML = data.date;
+    },
+    function(xhr) {
+        console.error(xhr);
+    }
+);
+
+function setUserAgent() {
+    var u = navigator.userAgent;
+    document.getElementById("useragentId").innerHTML = u;
+
+}
+
+function clearWebAppCache() {
+    window.localStorage.clear();
+}
+
+function getCmbUserId() {
+    var cmbUserId = "";
+
+    var cmbIdIdx = window.location.href.indexOf('cmbUserId=');
+    if (cmbIdIdx>=0) {
+        var ampIdx = window.location.href.indexOf('&', cmbIdIdx);
+        if (ampIdx<0) {
+            ampIdx = window.location.href.length;
+        }
+        cmbUserId = window.location.href.substring(window.location.href.indexOf('cmbUserId=')+10,ampIdx);
+    }
+
+    var txtCmbUserId = document.getElementById("txtCmbUserId");
+    
+    if (cmbUserId!="") {
+         
+         txtCmbUserId.value = cmbUserId;
+    }
+
+    cmbUserId = txtCmbUserId.value;
+    return   cmbUserId;
+}
+
+
+function getCmbVersion() {
+    var appVersion = "";
+    var appVersionIdx = window.location.href.indexOf('appVersion=');
+    if (appVersionIdx>=0) {
+        var ampIdx = window.location.href.indexOf('&', appVersionIdx);
+        if (ampIdx<0) {
+            ampIdx = window.location.href.length;
+        }
+        appVersion = window.location.href.substring(window.location.href.indexOf('appVersion=')+11,ampIdx);
+    }
+
+    return appVersion;
+}
+
+var appVersion = getCmbVersion();
+var cmbUserId = getCmbUserId();
+
+setUserAgent();
+
+var originAppLink = document.getElementById("applink").href;
+var originAppLink2 = document.getElementById("applink2").href;
+var originAppLink3 = document.getElementById("applink3").href;
+var originAppLink172 = document.getElementById("applink_172").href;
+
+addCmbUserToAppLink();
+
+function addCmbUserToAppLink() {
+    cmbUserId = getCmbUserId();
+    appVersion = getCmbVersion();
+    document.getElementById("userId").innerHTML = cmbUserId;
+    document.getElementById("applink").href = originAppLink + "#/?cmbUserId=" + cmbUserId+'&appVersion='+appVersion;
+    document.getElementById("applink2").href = originAppLink2 + "#/?cmbUserId=" + cmbUserId+'&appVersion='+appVersion;
+    document.getElementById("applink3").href = originAppLink3 + "#/?cmbUserId=" + cmbUserId+'&appVersion='+appVersion;
+    document.getElementById("applink_172").href = originAppLink172+ "#/?cmbUserId=" + cmbUserId+'&appVersion='+appVersion;
+}
+
+</script>
+<script type="text/javascript">
+var items = browser.versions.ios == true ? document.getElementsByClassName("aos") : document.getElementsByClassName("ios");
+for (var i = 0; i < items.length; ++i) {
+    var item = items[i];
+    item.style.display = "none"
+}
+
+var scheme = "http://CMBLS/cmbstep?";
+
+CMBLS = {};
+CMBLS.cmbstep = {};
+
+CMBLS.cmbstep.successCallback = function(id, data) {
+    // do something to message yourself
+    var xmlDoc;
+    if (window.DOMParser) {
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(data, "text/xml");
+    } else // Internet Explorer
+    {
+        xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.async = false;
+        xmlDoc.loadXML(data);
+    }
+    if (!xmlDoc) return;
+
+    if (id == 10 || (id == 3 && browser.versions.ios)) {
+        var steps = xmlDoc.getElementsByTagName("steps")[0].firstChild.nodeValue;
+        var hour = xmlDoc.getElementsByTagName("hour")[0].firstChild.nodeValue;
+        onStep(steps, hour);
+    } else if (id == 5) {
+        var steps = xmlDoc.getElementsByTagName("steps")[0].firstChild.nodeValue;
+        var hour = xmlDoc.getElementsByTagName("hour")[0].firstChild.nodeValue;
+        onStep(steps, hour);
+        updateTodayStep(steps, hour);
+    } else {
+        //alert("Success: id:" + id + ", data:" + data);
+    }
+}
+
+CMBLS.cmbstep.failCallback = function(id, data) {
+    // do something to message yourself
+    alert("Failed: id:" + id + ", data:" + data);
+}
+
+function isPedometerSupport() {
+    var param = "id=12&cmd=check_pedometer_support";
+    window.location.href = scheme + param;
+}
+
+function isPedometerAvailable() {
+    var param = "id=13&cmd=check_pedometer_available";
+    window.location.href = scheme + param;
+}
+
+function syncData() {
+    var param = "id=14&cmd=sync_data";
+    window.location.href = scheme + param;
+}
+
+//设置计步器开关状态
+function setStepCounterSettingOn(on) {
+    var param = "id=1&cmd=set_step_counter_setting_on&on=" + on;
+    window.location.href = scheme + param;
+}
+
+//获取当前计步器开关状态
+function isStepCounterSettingOn() {
+    var param = "id=2&cmd=is_step_counter_setting_on";
+    window.location.href = scheme + param;
+}
+
+//开启计步功能
+function startStepCounter() {
+    var param = "id=3&cmd=start_step_counter";
+    window.location.href = scheme + param;
+}
+
+//实时步数回调
+function onStep(steps, time) {
+    document.getElementById('step_value').innerHTML = steps;
+}
+
+//停止计步功能
+function stopStepCounter() {
+    var r = confirm("确定要停止计步功能？");
+    if (r == true) {
+        var param = "id=4&cmd=stop_step_counter";
+        window.location.href = scheme + param;
+    }
+}
+
+//注册实时步接收器
+function regStepCountReceiver() {
+    window.location.href = scheme + "id=9&cmd=reg_step_counter_receiver";
+}
+
+//注销实时步数接收器
+function unregStepCountReceiver() {
+    window.location.href = scheme + "id=11&cmd=unreg_step_counter_receiver";
+}
+
+//获取今天的步数
+function getTodayStepData() {
+    var param = "id=5&cmd=today_step";
+    window.location.href = scheme + param;
+}
+
+var today;
+var date;
+var year;
+var month;
+var day;
+var lastDate;
+//获取最近30天数据
+function getDaysData() {
+    date = new Date();
+    year = date.getFullYear();
+    month = date.getMonth() + 1;
+    day = date.getDate();
+    today = year + (month < 10 ? '0' + month : month+'') + (day < 10 ? '0' + day : day+'');
+    var params;
+    params = "id=6&cmd=days_step&fromDate=" + today + "&toDate=" + today;
+    window.location.href = scheme + params;
+}
+
+//获取今天数据回调
+function updateTodayStep(steps, hour) {
+    //alert("steps: " + steps + ", hour: " + Number(hour).toFixed(2));
+}
+
+//获取最近30数据回调
+function updateDaysData(data) {
+    alert(JSON.stringify(data));
+}
+
+//检测计步服务是否运行
+function isServiceRunning() {
+    var param = "id=7&cmd=is_step_counter_service_running";
+    window.location.href = scheme + param;
+}
+
+//检测计步服务是否运行 Callback
+function isServiceRunningCallback(isRun) {
+    alert(isRun);
+}
+
+//清除DB数据
+function resetDB() {
+    var r = confirm("确定要清除本地DB数据？");
+    if (r == true) {
+        window.location.href = scheme + "id=8&cmd=reset_db&date=20150803";
+    }
+}
+
+var method = "id=5&cmd=today_step";
+window.location.href = scheme + method;　　
+
+//注册实时步数接收器
+
+setTimeout(function() {
+  regStepCountReceiver();
+}, 2000);
+</script>
+
+</HTML>
